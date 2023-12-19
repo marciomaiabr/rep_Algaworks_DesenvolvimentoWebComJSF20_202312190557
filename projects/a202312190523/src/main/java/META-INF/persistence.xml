@@ -19,4 +19,22 @@
 			<property name="hibernate.archive.autodetection" value="class, hbm"/>
 		</properties>
 	</persistence-unit>
+	<persistence-unit name="myPUNoCreate" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<properties>
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.SQLServerDialect" />
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:sqlserver://localhost;trustServerCertificate=true;database=db202312190523;user=sa;password=senhasa;" />
+			<property name="javax.persistence.jdbc.user" value="sa" />
+			<property name="javax.persistence.jdbc.password"
+				value="senhasa" />
+			<property name="javax.persistence.jdbc.driver"
+				value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="use_sql_comments" value="true" />
+			<property name="hibernate.archive.autodetection" value="class, hbm"/>
+		</properties>
+	</persistence-unit>
 </persistence>
