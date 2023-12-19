@@ -6,7 +6,7 @@ import javax.faces.bean.ManagedBean;
 public class Teste01 {
 
 	public String testa() {
-		System.out.println("Teste01.testa()... 202312190547...");
+		System.out.println("Teste01.testa()... 202312190624...");
 		return null;
 	}
 	
