@@ -77,7 +77,7 @@ public class JDBCUtil {
 		// cria banco de dados da aplicação
 		String connectionUrl = "jdbc:sqlserver://localhost;trustServerCertificate=true;database=master;user=sa;password=senhasa;";
 		Connection conn = null;
-		String db = "db202312180612";
+		String db = "db202312190523";
 		String sql = "create database ".concat(db);
 		PreparedStatement ps = null;
 		try {
