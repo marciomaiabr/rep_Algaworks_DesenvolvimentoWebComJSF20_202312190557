@@ -1,8 +1,5 @@
 package pkgs.mbs.teste01;
 
-import javax.faces.bean.ManagedBean;
-
-@ManagedBean
 public class Teste01 {
 
 	private String nome;
