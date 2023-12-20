@@ -3,13 +3,13 @@ package pkgs.mbs.teste01;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 import pkgs.models.Produto;
 
 @ManagedBean
-@ApplicationScoped
+@SessionScoped
 public class Teste01 {
 
 	public Teste01() {
