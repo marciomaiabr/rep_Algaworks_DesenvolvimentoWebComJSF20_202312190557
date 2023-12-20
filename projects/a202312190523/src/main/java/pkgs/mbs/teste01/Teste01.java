@@ -5,9 +5,18 @@ import javax.faces.bean.ManagedBean;
 @ManagedBean
 public class Teste01 {
 
-	public String testa() {
-		System.out.println("Teste01.testa()... 202312200508...");
-		return null;
+	private String nome;
+
+	public String getNome() {
+		return nome;
 	}
-	
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void enviar() {
+		setNome(this.nome.toUpperCase());
+	}
+
 }

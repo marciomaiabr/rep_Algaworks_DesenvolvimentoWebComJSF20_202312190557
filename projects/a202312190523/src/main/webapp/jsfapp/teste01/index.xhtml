@@ -1,17 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
 
 <h:head>
-<title>Principal JSFApp</title>
-</h:head> 
+	<title>Principal JSFApp</title>
+</h:head>
 <body>
 	<h1>JSFApp...</h1>
-	<hr/>
+	<hr />
 	<h:form>
-		<h:commandButton value="Testa..." action="#{teste01.testa}" />
+		Seu nome:
+		<h:inputText value="#{teste01.nome}" />
+		<h:commandButton value="Enviar #{teste01.nome} " action="#{teste01.enviar}" />
+		<br />
+		Nome digitado: #{teste01.nome}
 	</h:form>
 </body>
 </html>
