@@ -11,7 +11,10 @@
 	<h1>JSFApp...</h1>
 	<hr/>
 	<h:form>
-		<h:commandButton value="Testa..." action="#{teste01.testa}" />
+		Seu nome:
+		<h:inputText binding="#{teste01.campo}" />
+
+		<h:commandButton value="Testar" binding="#{teste01.botao}" action="#{teste01.testar}" />
 	</h:form>
 </body>
 </html>
