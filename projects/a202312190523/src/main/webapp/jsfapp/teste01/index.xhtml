@@ -1,17 +1,30 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
 
 <h:head>
-<title>Principal JSFApp</title>
-</h:head> 
+	<title>Principal JSFApp</title>
+</h:head>
 <body>
 	<h1>JSFApp...</h1>
-	<hr/>
+	<hr />
 	<h:form>
-		<h:commandButton value="Testa..." action="#{teste01.testa}" />
+		Nome: <h:inputText value="#{teste01.produto.nome}" />
+		<br />
+		Fabricante: <h:inputText value="#{teste01.produto.fabricante}" />
+		<br />
+		Categoria: <h:inputText value="#{teste01.produto.categoria}" />
+		<br />
+		<h:commandButton value="Incluir" action="#{teste01.incluir}" />
 	</h:form>
+
+	<ol>
+		<ui:repeat value="#{teste01.produtos}" var="p">
+			<li>#{p}</li>
+		</ui:repeat>
+	</ol>
+
 </body>
 </html>
