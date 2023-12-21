@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
@@ -33,6 +35,16 @@ public class Teste01 implements Serializable {
 	public void incluir() {
 		produtos.add(this.produto);
 		this.produto = new Produto();
+	}
+
+	@PostConstruct
+	public void init() {
+		System.out.println("Teste01.init()");
+	}
+
+	@PreDestroy
+	public void finish() {
+		System.out.println("Teste01.finish()");
 	}
 
 }
