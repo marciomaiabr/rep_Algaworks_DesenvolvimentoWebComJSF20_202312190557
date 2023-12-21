@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.RequestScoped;
 
 import pkgs.models.Produto;
 
 @ManagedBean
-@ViewScoped
+@RequestScoped
 public class Teste01 implements Serializable {
 
 	public Teste01() {
