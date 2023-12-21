@@ -7,12 +7,12 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.NoneScoped;
 
 import pkgs.models.Produto;
 
 @ManagedBean
-@RequestScoped
+@NoneScoped
 public class Teste01 implements Serializable {
 
 	public Teste01() {
