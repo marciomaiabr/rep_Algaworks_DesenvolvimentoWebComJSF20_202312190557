@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.ActionEvent;
 
 import pkgs.models.Produto;
 
@@ -28,20 +29,29 @@ public class Teste01 implements Serializable {
 	}
 
 	private List<Produto> produtos;
+
 	public List<Produto> getProdutos() {
 		return produtos;
 	}
 
 	public void incluir() {
+		System.out.println("Teste01.incluir()");
 		produtos.add(this.produto);
 		this.produto = new Produto();
 	}
 
 	public String tentaEncaminhar() {
-		if(this.produtos.isEmpty()) {
+		if (this.produtos.isEmpty()) {
 			return "pagina03?faces-redirect=true";
-		}else {
+		} else {
 			return "pagina02?faces-redirect=true";
+		}
+	}
+
+	public void verificaInclusao(ActionEvent event) {
+		System.out.println("Teste01.verificaInclusao()");
+		if("".equals(produto.getFabricante())) {
+			produto.setFabricante("SEM FABRICANTE...");
 		}
 	}
 

@@ -18,7 +18,10 @@
 		<br />
 		Categoria: <h:inputText value="#{teste01.produto.categoria}" />
 		<br />
-		<h:commandButton value="Incluir" action="#{teste01.incluir}" />
+		<h:commandButton
+			value="Incluir" action="#{teste01.incluir}"
+			actionListener="#{teste01.verificaInclusao}"
+		/>
 	</h:form>
 
 	<p style="font-weight: bold;">Lista de Produtos</p>
