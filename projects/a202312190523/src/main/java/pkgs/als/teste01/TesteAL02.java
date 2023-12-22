@@ -4,7 +4,7 @@ import javax.faces.event.AbortProcessingException;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ActionListener;
 
-@javax.faces.bean.ManagedBean
+//@javax.faces.bean.ManagedBean
 public class TesteAL02 implements ActionListener {
 
 	@Override
