@@ -37,6 +37,14 @@ public class Teste01 implements Serializable {
 		this.produto = new Produto();
 	}
 
+	public String tentaEncaminhar() {
+		if(this.produtos.isEmpty()) {
+			return "pagina03?faces-redirect=true";
+		}else {
+			return "pagina02?faces-redirect=true";
+		}
+	}
+
 	@PostConstruct
 	public void init() {
 		System.out.println("Teste01.init()");
