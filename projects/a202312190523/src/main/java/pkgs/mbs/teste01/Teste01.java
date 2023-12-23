@@ -9,6 +9,7 @@ import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.event.ActionEvent;
+import javax.faces.event.ValueChangeEvent;
 
 import pkgs.models.Produto;
 
@@ -44,6 +45,16 @@ public class Teste01 implements Serializable {
 		this.produtoSelecionado = produtoSelecionado;
 	}
 
+	private String fabricantePesquisa;
+
+	public String getFabricantePesquisa() {
+		return fabricantePesquisa;
+	}
+
+	public void setFabricantePesquisa(String fabricantePesquisa) {
+		this.fabricantePesquisa = fabricantePesquisa;
+	}
+
 	public void incluir() {
 		System.out.println("Teste01.incluir()");
 		produtos.add(this.produto);
@@ -63,9 +74,17 @@ public class Teste01 implements Serializable {
 		}
 	}
 
+	public void pesquisar() {
+		System.out.println("Teste01.pesquisar()");
+	}
+
+	public void fabricantePesquisaAlterado(ValueChangeEvent event) {
+		System.out.println("Teste01.fabricantePesquisaAlterado()");
+	}
+
 	public void verificaInclusao(ActionEvent event) {
 		System.out.println("Teste01.verificaInclusao()");
-		if("".equals(produto.getFabricante())) {
+		if ("".equals(produto.getFabricante())) {
 			produto.setFabricante("SEM FABRICANTE...");
 		}
 	}

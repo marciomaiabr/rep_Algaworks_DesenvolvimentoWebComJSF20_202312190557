@@ -29,20 +29,24 @@
 			<f:actionListener type="pkgs.als.teste01.TesteAL02" />
 		</h:commandButton>
 	</h:form>
-
+	<hr />
 	<h:form>
 		<p style="font-weight: bold;">Lista de Produtos</p>
 		<ol>
 			<ui:repeat value="#{teste01.produtos}" var="p">
-				<li>
-					<h:outputText value="#{p}" />
-					<h:commandButton value="Excluir..." action="#{teste01.excluir}">
-						<f:setPropertyActionListener value="#{p}" target="#{teste01.produtoSelecionado}" />
-					</h:commandButton>
-				</li>
+				<li><h:outputText value="#{p}" /> <h:commandButton
+						value="Excluir..." action="#{teste01.excluir}">
+						<f:setPropertyActionListener value="#{p}"
+							target="#{teste01.produtoSelecionado}" />
+					</h:commandButton></li>
 			</ui:repeat>
 		</ol>
 	</h:form>
-
+	<hr />
+	<h:form>
+		Pesquisa por fabricante:
+		<h:inputText value="#{teste01.fabricantePesquisa}" valueChangeListener="#{teste01.fabricantePesquisaAlterado}" />
+		<h:commandButton value="Pesquisar..." action="#{teste01.pesquisar}"></h:commandButton>
+	</h:form>
 </body>
 </html>
