@@ -6,6 +6,15 @@
 
 <h:head>
 	<title>Principal JSFApp</title>
+	<script>
+		function validar(){
+			if(document.getElementById('nlf:email').value!=''){
+				return confirm('Validar ?');
+			}else{
+				return false;
+			}
+		}
+	</script>
 </h:head>
 <body>
 	<h1>JSFApp...</h1>
@@ -15,14 +24,15 @@
 	</h3>
 	<h3>202312231027...</h3>
 	<hr />
-	<h:form>
+	<h:form id="nlf">
 		<h:outputLabel value="Assine nossa newsletter...">
 			<h:inputText value="Seu email aqui..." size="40" maxlength="30"
-				title="Informe seu e-mail aqui..." onfocus="this.value='';" />
+				title="Informe seu e-mail aqui..." onfocus="this.value='';" id="email" />
 		</h:outputLabel>
 		<h:commandButton value="Assinar..."
 			action="#{teste01.tentar}"
-			onclick="return confirm('Validar ?');"
+			onclick="return validar();"
+			id="btnAssinar"
 		/>
 	</h:form>
 </body>
