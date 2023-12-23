@@ -21,6 +21,7 @@ public class Teste01 implements Serializable {
 		System.out.println("Teste01.Teste01()");
 		this.produtos = new ArrayList<>();
 		this.produto = new Produto();
+		this.produtosFiltrados = new ArrayList<>();
 	}
 
 	private Produto produto;
@@ -55,6 +56,16 @@ public class Teste01 implements Serializable {
 		this.fabricantePesquisa = fabricantePesquisa;
 	}
 
+	private List<Produto> produtosFiltrados;
+
+	public List<Produto> getProdutosFiltrados() {
+		return produtosFiltrados;
+	}
+
+	public void setProdutosFiltrados(List<Produto> produtosFiltrados) {
+		this.produtosFiltrados = produtosFiltrados;
+	}
+
 	public void incluir() {
 		System.out.println("Teste01.incluir()");
 		produtos.add(this.produto);
@@ -79,7 +90,18 @@ public class Teste01 implements Serializable {
 	}
 
 	public void fabricantePesquisaAlterado(ValueChangeEvent event) {
-		System.out.println("Teste01.fabricantePesquisaAlterado()");
+		System.out.println("Teste01.fabricantePesquisaAlterado()[this.fabricantePesquisa=" + this.fabricantePesquisa
+				+ "][event.getOldValue()=" + event.getOldValue() + "][event.getNewValue()=" + event.getNewValue()
+				+ "]");
+
+		this.produtosFiltrados.clear();
+
+		for(Produto produto : this.produtos) {
+			if(produto.getFabricante().toUpperCase().startsWith(event.getNewValue().toString().toUpperCase())) {
+				this.produtosFiltrados.add(produto);
+			}
+		}
+
 	}
 
 	public void verificaInclusao(ActionEvent event) {

@@ -9,7 +9,7 @@
 </h:head>
 <body>
 	<h1>JSFApp...</h1>
-	<h3>202312230551...</h3>
+	<h3>202312230754...</h3>
 	<hr />
 	<h:form>
 		<p>
@@ -45,9 +45,15 @@
 	<hr />
 	<h:form>
 		Pesquisa por fabricante:
-		<h:inputText value="#{teste01.fabricantePesquisa}" valueChangeListener="#{teste01.fabricantePesquisaAlterado}"
-		onchange="submit()"
-		/>
+		<h:inputText value="#{teste01.fabricantePesquisa}"
+			valueChangeListener="#{teste01.fabricantePesquisaAlterado}"
+			onchange="submit()" />
+		<p style="font-weight: bold;">Lista de Produtos Filtrados</p>
+		<ol>
+			<ui:repeat value="#{teste01.produtosFiltrados}" var="pf">
+				<li><h:outputText value="#{pf}" /></li>
+			</ui:repeat>
+		</ol>
 	</h:form>
 </body>
 </html>
