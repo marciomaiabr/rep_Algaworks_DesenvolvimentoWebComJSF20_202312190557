@@ -1,103 +1,22 @@
 package pkgs.mbs.teste01;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.event.ActionEvent;
-import javax.faces.event.ValueChangeEvent;
-
-import pkgs.models.Produto;
 
 @ManagedBean
 @SessionScoped
 public class Teste01 implements Serializable {
 
+	public long getMbTs() {
+		return 202312231005L;
+	}
+
 	public Teste01() {
 		System.out.println("Teste01.Teste01()");
-		this.produtos = new ArrayList<>();
-		this.produto = new Produto();
-		this.produtosFiltrados = new ArrayList<>();
-	}
-
-	private Produto produto;
-
-	public Produto getProduto() {
-		return produto;
-	}
-
-	private List<Produto> produtos;
-
-	public List<Produto> getProdutos() {
-		return produtos;
-	}
-
-	private Produto produtoSelecionado;
-
-	public Produto getProdutoSelecionado() {
-		return produtoSelecionado;
-	}
-
-	public void setProdutoSelecionado(Produto produtoSelecionado) {
-		this.produtoSelecionado = produtoSelecionado;
-	}
-
-	private List<Produto> produtosFiltrados;
-
-	public List<Produto> getProdutosFiltrados() {
-		return produtosFiltrados;
-	}
-
-	public void setProdutosFiltrados(List<Produto> produtosFiltrados) {
-		this.produtosFiltrados = produtosFiltrados;
-	}
-
-	public void incluir() {
-		System.out.println("Teste01.incluir()");
-		produtos.add(this.produto);
-		this.produto = new Produto();
-	}
-
-	public void excluir() {
-		System.out.println("Teste01.excluir()");
-		this.produtos.remove(produtoSelecionado);
-	}
-
-	public String tentaEncaminhar() {
-		if (this.produtos.isEmpty()) {
-			return "pagina03?faces-redirect=true";
-		} else {
-			return "pagina02?faces-redirect=true";
-		}
-	}
-
-	public void pesquisar() {
-		System.out.println("Teste01.pesquisar()");
-	}
-
-	public void fabricantePesquisaAlterado(ValueChangeEvent event) {
-		System.out.println("Teste01.fabricantePesquisaAlterado()[event.getOldValue()=" + event.getOldValue() + "][event.getNewValue()=" + event.getNewValue()
-				+ "]");
-
-		this.produtosFiltrados.clear();
-
-		for(Produto produto : this.produtos) {
-			if(produto.getFabricante().toUpperCase().startsWith(event.getNewValue().toString().toUpperCase())) {
-				this.produtosFiltrados.add(produto);
-			}
-		}
-
-	}
-
-	public void verificaInclusao(ActionEvent event) {
-		System.out.println("Teste01.verificaInclusao()");
-		if ("".equals(produto.getFabricante())) {
-			produto.setFabricante("SEM FABRICANTE...");
-		}
 	}
 
 	@PostConstruct

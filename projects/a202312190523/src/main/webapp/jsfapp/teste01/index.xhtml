@@ -9,51 +9,12 @@
 </h:head>
 <body>
 	<h1>JSFApp...</h1>
-	<h3>202312230754...</h3>
+	<h3>
+		<h:outputText value="mbts..." />
+		<h:outputText value="#{teste01.mbTs}" />
+	</h3>
+	<h3>202312231004...</h3>
 	<hr />
-	<h:form>
-		<p>
-			<h:commandLink value="Tenta Encaminhar..."
-				action="#{teste01.tentaEncaminhar}">
-				<f:actionListener binding="#{testeAL02}" />
-			</h:commandLink>
-		</p>
-		Nome: <h:inputText value="#{teste01.produto.nome}" />
-		<br />
-		Fabricante: <h:inputText value="#{teste01.produto.fabricante}" />
-		<br />
-		Categoria: <h:inputText value="#{teste01.produto.categoria}" />
-		<br />
-		<h:commandButton value="Incluir" action="#{teste01.incluir}"
-			actionListener="#{teste01.verificaInclusao}">
-			<f:actionListener type="pkgs.als.teste01.TesteAL02" />
-		</h:commandButton>
-	</h:form>
-	<hr />
-	<h:form>
-		<p style="font-weight: bold;">Lista de Produtos</p>
-		<ol>
-			<ui:repeat value="#{teste01.produtos}" var="p">
-				<li><h:outputText value="#{p}" /> <h:commandButton
-						value="Excluir..." action="#{teste01.excluir}">
-						<f:setPropertyActionListener value="#{p}"
-							target="#{teste01.produtoSelecionado}" />
-					</h:commandButton></li>
-			</ui:repeat>
-		</ol>
-	</h:form>
-	<hr />
-	<h:form>
-		Pesquisa por fabricante:
-		<h:inputText
-			valueChangeListener="#{teste01.fabricantePesquisaAlterado}"
-			onchange="submit()" />
-		<p style="font-weight: bold;">Lista de Produtos Filtrados</p>
-		<ol>
-			<ui:repeat value="#{teste01.produtosFiltrados}" var="pf">
-				<li><h:outputText value="#{pf}" /></li>
-			</ui:repeat>
-		</ol>
-	</h:form>
+
 </body>
 </html>
