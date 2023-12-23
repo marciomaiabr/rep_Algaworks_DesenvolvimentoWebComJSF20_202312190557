@@ -29,4 +29,8 @@ public class Teste01 implements Serializable {
 		System.out.println("Teste01.finish()");
 	}
 
+	public void tentar() {
+		System.out.println("Teste01.tentando...");
+	}
+
 }
