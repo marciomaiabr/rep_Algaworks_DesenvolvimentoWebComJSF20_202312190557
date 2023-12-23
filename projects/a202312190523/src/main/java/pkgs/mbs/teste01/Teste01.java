@@ -34,10 +34,25 @@ public class Teste01 implements Serializable {
 		return produtos;
 	}
 
+	private Produto produtoSelecionado;
+
+	public Produto getProdutoSelecionado() {
+		return produtoSelecionado;
+	}
+
+	public void setProdutoSelecionado(Produto produtoSelecionado) {
+		this.produtoSelecionado = produtoSelecionado;
+	}
+
 	public void incluir() {
 		System.out.println("Teste01.incluir()");
 		produtos.add(this.produto);
 		this.produto = new Produto();
+	}
+
+	public void excluir() {
+		System.out.println("Teste01.excluir()");
+		this.produtos.remove(produtoSelecionado);
 	}
 
 	public String tentaEncaminhar() {

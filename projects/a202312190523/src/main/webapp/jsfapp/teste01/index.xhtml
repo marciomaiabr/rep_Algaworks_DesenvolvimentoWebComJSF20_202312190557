@@ -9,6 +9,7 @@
 </h:head>
 <body>
 	<h1>JSFApp...</h1>
+	<h3>202312230551...</h3>
 	<hr />
 	<h:form>
 		<p>
@@ -29,12 +30,19 @@
 		</h:commandButton>
 	</h:form>
 
-	<p style="font-weight: bold;">Lista de Produtos</p>
-	<ol>
-		<ui:repeat value="#{teste01.produtos}" var="p">
-			<li>#{p}</li>
-		</ui:repeat>
-	</ol>
+	<h:form>
+		<p style="font-weight: bold;">Lista de Produtos</p>
+		<ol>
+			<ui:repeat value="#{teste01.produtos}" var="p">
+				<li>
+					<h:outputText value="#{p}" />
+					<h:commandButton value="Excluir..." action="#{teste01.excluir}">
+						<f:setPropertyActionListener value="#{p}" target="#{teste01.produtoSelecionado}" />
+					</h:commandButton>
+				</li>
+			</ui:repeat>
+		</ol>
+	</h:form>
 
 </body>
 </html>
