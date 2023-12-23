@@ -46,16 +46,6 @@ public class Teste01 implements Serializable {
 		this.produtoSelecionado = produtoSelecionado;
 	}
 
-	private String fabricantePesquisa;
-
-	public String getFabricantePesquisa() {
-		return fabricantePesquisa;
-	}
-
-	public void setFabricantePesquisa(String fabricantePesquisa) {
-		this.fabricantePesquisa = fabricantePesquisa;
-	}
-
 	private List<Produto> produtosFiltrados;
 
 	public List<Produto> getProdutosFiltrados() {
@@ -90,8 +80,7 @@ public class Teste01 implements Serializable {
 	}
 
 	public void fabricantePesquisaAlterado(ValueChangeEvent event) {
-		System.out.println("Teste01.fabricantePesquisaAlterado()[this.fabricantePesquisa=" + this.fabricantePesquisa
-				+ "][event.getOldValue()=" + event.getOldValue() + "][event.getNewValue()=" + event.getNewValue()
+		System.out.println("Teste01.fabricantePesquisaAlterado()[event.getOldValue()=" + event.getOldValue() + "][event.getNewValue()=" + event.getNewValue()
 				+ "]");
 
 		this.produtosFiltrados.clear();
