@@ -13,15 +13,10 @@
 		<h:outputText value="mbts..." />
 		<h:outputText value="#{teste01.mbTs}" />
 	</h3>
-	<h3>202312260608...</h3>
+	<h3>202312260619...</h3>
 	<hr />
 	<h:form>
-		Sexo:
-		<h:selectOneRadio value="#{teste01.sexo}" layout="pageDirection">
-			<f:selectItem itemValue="M" itemLabel="Masculino" />
-			<f:selectItem itemValue="F" itemLabel="Feminino" />
-		</h:selectOneRadio>
-		<h:commandButton value="Enviar..." action="#{teste01.enviar}" />
+		Sexo: #{teste01.sexo}
 	</h:form>
 </body>
 </html>
