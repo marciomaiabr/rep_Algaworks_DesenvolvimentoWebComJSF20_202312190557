@@ -13,24 +13,27 @@
 		<h:outputText value="mbts..." />
 		<h:outputText value="#{teste01.mbTs}" />
 	</h3>
-	<h3>202312260522...</h3>
+	<h3>202312260554...</h3>
 	<hr />
 	<h:form>
-		<h:outputLabel value="Escolha o seu time favorito:">
-			<h:selectOneListbox id="time" value="#{teste01.time}">
+		<h:outputLabel value="Escolha os seus times favoritos:">
+			<h:selectManyMenu id="times" value="#{teste01.times}">
 				<f:selectItem itemValue="Corinthians" itemLabel="Bangu 1..." />
 				<f:selectItem itemValue="Flamengo" itemLabel="Favela..." />
 				<f:selectItem itemValue="São Paulo" itemLabel="Top of mind..." />
 				<f:selectItem itemValue="Santos" />
 				<f:selectItem itemValue="Palmeiras" />
-			</h:selectOneListbox>
+			</h:selectManyMenu>
 		</h:outputLabel>
 		<h:commandButton value="Escolher..." action="#{teste01.escolher}" />
 		<br /><br />
-		<div>
-			<h:outputText value="#{teste01.time}" rendered="#{not empty teste01.time}"
-			style="background-color: red; color: #fff; font-size: 32px; font-familly: Arial;"/>
-		</div>
+
+		<ol>
+			<ui:repeat var="time" value="#{teste01.times}">
+				<li><h:outputLabel value="#{time}" /></li>
+			</ui:repeat>
+		</ol>
+
 	</h:form>
 </body>
 </html>

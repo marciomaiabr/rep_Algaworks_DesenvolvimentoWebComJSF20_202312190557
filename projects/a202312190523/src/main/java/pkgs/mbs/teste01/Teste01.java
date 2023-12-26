@@ -19,20 +19,23 @@ public class Teste01 implements Serializable {
 		System.out.println("Teste01.Teste01()");
 	}
 
-	private String time;
+	private String[] times;
 
-	public String getTime() {
-		return time;
+	public String[] getTimes() {
+		return times;
 	}
 
-	public void setTime(String time) {
-		this.time = time;
+	public void setTimes(String[] times) {
+		this.times = times;
 	}
 
 	public void escolher() {
-		System.out.println("[this.time="+this.time+"]");
+		System.out.println("[this.times="+this.times+"]");
+		for(String time : this.times) {
+			System.out.println("[time="+time+"]");
+		}
 	}
-	
+
 	@PostConstruct
 	public void init() {
 		System.out.println("Teste01.init()");
