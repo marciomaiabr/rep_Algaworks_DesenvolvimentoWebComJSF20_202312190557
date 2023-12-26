@@ -19,6 +19,16 @@ public class Teste01 implements Serializable {
 		System.out.println("Teste01.Teste01()");
 	}
 
+	private String nome;
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
 	@PostConstruct
 	public void init() {
 		System.out.println("Teste01.init()");
