@@ -17,6 +17,24 @@
 	<hr />
 	<h:form>
 
+		<h:panelGrid columns="2">
+
+			<f:facet name="header" >Cadastro de novo usuário</f:facet>
+
+			<h:outputLabel value="Nome completo:" />
+			<h:inputText size="100" />
+
+			<h:outputLabel value="Email:" />
+			<h:inputText size="50" />
+
+			<h:outputLabel value="Senha:" />
+			<h:inputSecret size="25" />
+
+			<h:outputText />
+			<h:commandButton value="Cadastrar..." />
+
+		</h:panelGrid>
+
 	</h:form>
 </body>
 </html>
