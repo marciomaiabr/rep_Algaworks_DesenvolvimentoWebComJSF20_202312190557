@@ -33,6 +33,16 @@ public class Teste01 implements Serializable {
 		return "pagina02";
 	}
 
+	private boolean receberNovidades;
+
+	public boolean isReceberNovidades() {
+		return receberNovidades;
+	}
+
+	public void setReceberNovidades(boolean receberNovidades) {
+		this.receberNovidades = receberNovidades;
+	}
+
 	@PostConstruct
 	public void init() {
 		System.out.println("Teste01.init()");

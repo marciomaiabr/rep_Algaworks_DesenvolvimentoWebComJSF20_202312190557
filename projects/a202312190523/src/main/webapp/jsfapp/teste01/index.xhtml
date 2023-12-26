@@ -21,6 +21,16 @@
 			<f:selectItem itemValue="M" itemLabel="Masculino" />
 			<f:selectItem itemValue="F" itemLabel="Feminino" />
 		</h:selectOneRadio>
+
+		<br />
+		<br />
+
+		<h:selectBooleanCheckbox value="#{teste01.receberNovidades}" />
+		Gostaria de receber as novidades por email
+
+		<br />
+		<br />
+
 		<h:commandButton value="Enviar..." action="#{teste01.enviar}" />
 	</h:form>
 </body>
