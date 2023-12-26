@@ -17,20 +17,23 @@
 	<hr />
 	<h:form>
 
-		<h:panelGrid columns="2">
+		<h:panelGrid columns="1">
 
 			<f:facet name="header" >Cadastro de novo usuário</f:facet>
 
-			<h:outputLabel value="Nome completo:" />
-			<h:inputText size="100" />
+			<h:outputLabel value="Nome completo:" >
+				<h:inputText size="100" />
+				<h:graphicImage value="/imgs/help.jpg" />
+			</h:outputLabel>
 
-			<h:outputLabel value="Email:" />
-			<h:inputText size="50" />
+			<h:outputLabel value="Email:" >
+				<h:inputText size="50" />
+			</h:outputLabel>
 
-			<h:outputLabel value="Senha:" />
-			<h:inputSecret size="25" />
+			<h:outputLabel value="Senha:" >
+				<h:inputSecret size="25" />
+			</h:outputLabel>
 
-			<h:outputText />
 			<h:commandButton value="Cadastrar..." />
 
 			<f:facet name="footer" ><h:outputText style="color:gray;" value="By MM 2023-2024 inc..." /></f:facet>
