@@ -16,6 +16,52 @@
 	<h3>202312260423...</h3>
 	<hr />
 	<h:form>
+		<h:graphicImage value="/imgs/logoMMGitHub.jpg" />
+		<br />
+
+		<h:outputText
+			value="Cadastro de currículo para a vaga #{teste01.vaga}"
+			style="font-weigth: bold; font-size: 22px;" />
+		<br />
+		<h:outputFormat value="Vaga {0} - Cargo{1}" style="color: red;">
+			<f:param value="#{teste01.vaga}" />
+			<f:param value="#{teste01.cargo}" />
+		</h:outputFormat>
+
+		<br />
+		<br />
+
+		<h:outputLabel value="Vaga On" style="color:blue"
+			rendered="#{teste01.ativa}" />
+		<h:outputLabel value="Vaga Off" style="color:red"
+			rendered="#{!teste01.ativa}" />
+		<br />
+		<br />
+
+		<h:outputLabel value="Nome" for="nome" />
+		<h:inputText size="150" id="nome" />
+		<br />
+		<br />
+
+		<h:outputLabel value="E-mail">
+			<h:inputText size="60" />
+		</h:outputLabel>
+		<br />
+		<br />
+
+		<h:outputLabel value="Senha" />
+		<h:inputSecret size="40" />
+
+		<br />
+		<br />
+
+		<h:outputLabel value="Qualificações" />
+		<br />
+		<h:inputTextarea cols="60" rows="5" />
+		<br />
+		<br />
+
+		<h:commandButton value="Cadastrar" />
 	</h:form>
 </body>
 </html>

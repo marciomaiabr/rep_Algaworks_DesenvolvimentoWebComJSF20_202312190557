@@ -19,6 +19,36 @@ public class Teste01 implements Serializable {
 		System.out.println("Teste01.Teste01()");
 	}
 
+	private String vaga = "A0382D";
+
+	public String getVaga() {
+		return vaga;
+	}
+
+	public void setVaga(String vaga) {
+		this.vaga = vaga;
+	}
+
+	private String cargo = "Programador Java Senior";
+
+	public String getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
+	}
+
+	private boolean ativa = true;
+
+	public boolean isAtiva() {
+		return ativa;
+	}
+
+	public void setAtiva(boolean ativa) {
+		this.ativa = ativa;
+	}
+
 	@PostConstruct
 	public void init() {
 		System.out.println("Teste01.init()");
