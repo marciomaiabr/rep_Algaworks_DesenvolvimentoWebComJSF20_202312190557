@@ -31,6 +31,16 @@
 		<br />
 		<br />
 
+		Linguagens favoritas
+		<h:selectManyCheckbox layout="lineDirection" value="#{teste01.linguagensFavoritas}">
+			<f:selectItem itemValue="Java" />
+			<f:selectItem itemValue="Delphi" />
+			<f:selectItem itemValue="C#" />
+		</h:selectManyCheckbox>
+
+		<br />
+		<br />
+
 		<h:commandButton value="Enviar..." action="#{teste01.enviar}" />
 	</h:form>
 </body>

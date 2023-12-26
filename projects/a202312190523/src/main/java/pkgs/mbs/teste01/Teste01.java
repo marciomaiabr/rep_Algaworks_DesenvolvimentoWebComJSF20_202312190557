@@ -43,6 +43,16 @@ public class Teste01 implements Serializable {
 		this.receberNovidades = receberNovidades;
 	}
 
+	private String[] linguagensFavoritas;
+
+	public String[] getLinguagensFavoritas() {
+		return linguagensFavoritas;
+	}
+
+	public void setLinguagensFavoritas(String[] linguagensFavoritas) {
+		this.linguagensFavoritas = linguagensFavoritas;
+	}
+
 	@PostConstruct
 	public void init() {
 		System.out.println("Teste01.init()");
