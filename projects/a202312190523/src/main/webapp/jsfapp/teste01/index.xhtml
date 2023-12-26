@@ -16,6 +16,21 @@
 	<h3>202312260522...</h3>
 	<hr />
 	<h:form>
+		<h:outputLabel value="Escolha o seu time favorito:">
+			<h:selectOneMenu id="time" value="#{teste01.time}">
+				<f:selectItem itemValue="Corinthians" itemLabel="Bangu 1..." />
+				<f:selectItem itemValue="Flamengo" itemLabel="Favela..." />
+				<f:selectItem itemValue="São Paulo" itemLabel="Top of mind..." />
+				<f:selectItem itemValue="Santos" />
+				<f:selectItem itemValue="Palmeiras" />
+			</h:selectOneMenu>
+		</h:outputLabel>
+		<h:commandButton value="Escolher..." action="#{teste01.escolher}" />
+		<br /><br />
+		<div>
+			<h:outputText value="#{teste01.time}" rendered="#{not empty teste01.time}"
+			style="background-color: red; color: #fff; font-size: 32px; font-familly: Arial;"/>
+		</div>
 	</h:form>
 </body>
 </html>

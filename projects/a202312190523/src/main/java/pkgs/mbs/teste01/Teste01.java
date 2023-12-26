@@ -19,6 +19,20 @@ public class Teste01 implements Serializable {
 		System.out.println("Teste01.Teste01()");
 	}
 
+	private String time;
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+
+	public void escolher() {
+		System.out.println("[this.time="+this.time+"]");
+	}
+	
 	@PostConstruct
 	public void init() {
 		System.out.println("Teste01.init()");
