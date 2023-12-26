@@ -12,7 +12,7 @@ import javax.faces.bean.SessionScoped;
 public class Teste01 implements Serializable {
 
 	public long getMbTs() {
-		return 202312231005L;
+		return 202312260424L;
 	}
 
 	public Teste01() {
@@ -27,10 +27,6 @@ public class Teste01 implements Serializable {
 	@PreDestroy
 	public void finish() {
 		System.out.println("Teste01.finish()");
-	}
-
-	public void tentar() {
-		System.out.println("Teste01.tentando...");
 	}
 
 }
