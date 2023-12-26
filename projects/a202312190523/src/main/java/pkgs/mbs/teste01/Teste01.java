@@ -19,40 +19,6 @@ public class Teste01 implements Serializable {
 		System.out.println("Teste01.Teste01()");
 	}
 
-	private String sexo;
-
-	public String getSexo() {
-		return sexo;
-	}
-
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
-	}
-
-	public String enviar() {
-		return "pagina02";
-	}
-
-	private boolean receberNovidades;
-
-	public boolean isReceberNovidades() {
-		return receberNovidades;
-	}
-
-	public void setReceberNovidades(boolean receberNovidades) {
-		this.receberNovidades = receberNovidades;
-	}
-
-	private String[] linguagensFavoritas;
-
-	public String[] getLinguagensFavoritas() {
-		return linguagensFavoritas;
-	}
-
-	public void setLinguagensFavoritas(String[] linguagensFavoritas) {
-		this.linguagensFavoritas = linguagensFavoritas;
-	}
-
 	@PostConstruct
 	public void init() {
 		System.out.println("Teste01.init()");
