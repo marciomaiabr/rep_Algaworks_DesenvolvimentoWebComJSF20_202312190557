@@ -5,28 +5,16 @@ import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 
 @ManagedBean
-//@SessionScoped
 public class Teste01 implements Serializable {
 
 	public long getMbTs() {
-		return 202312260651L;
+		return 202312260748L;
 	}
 
 	public Teste01() {
 		System.out.println("Teste01.Teste01()");
-	}
-
-	private String nome;
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
 	}
 
 	@PostConstruct
