@@ -8,7 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 @ManagedBean
-@SessionScoped
+//@SessionScoped
 public class Teste01 implements Serializable {
 
 	public long getMbTs() {
