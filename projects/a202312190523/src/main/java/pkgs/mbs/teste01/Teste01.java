@@ -7,10 +7,12 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
 import pkgs.models.Cliente;
 
 @ManagedBean
+@ViewScoped
 public class Teste01 implements Serializable {
 
 	public long getMbTs() {
@@ -35,6 +37,11 @@ public class Teste01 implements Serializable {
 		this.getClientes().add(new Cliente(3, "Carina", "Campo Grande"));
 		this.getClientes().add(new Cliente(4, "Driely", "Rio de janeiro"));
 		this.getClientes().add(new Cliente(5, "Marcela", "Goiania"));
+	}
+
+	public void salvar() {
+		System.out.println("Teste01.salvar()");
+		this.getClientes().forEach(System.out::println);
 	}
 
 	@PostConstruct

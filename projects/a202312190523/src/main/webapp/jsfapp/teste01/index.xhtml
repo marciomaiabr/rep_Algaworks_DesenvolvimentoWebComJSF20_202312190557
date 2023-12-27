@@ -26,17 +26,27 @@
 			rendered="#{not empty teste01.clientes}">
 			<h:column>
 				<f:facet name="header">Código</f:facet>
-				<h:outputText value="#{c.codigo}" />
+				<h:inputText value="#{c.codigo}" size="3" />
 			</h:column>
 			<h:column>
 				<f:facet name="header">Nome</f:facet>
-				<h:outputText value="#{c.nome}" />
+				<h:outputLink value="https://www.google.com/search?q=#{c.nome}">
+					<h:outputText value="#{c.nome}" />
+				</h:outputLink>
 			</h:column>
 			<h:column>
 				<f:facet name="header">Cidade</f:facet>
-				<h:outputText value="#{c.cidade}" />
+				<h:outputLink value="https://www.google.com/search">
+					<h:outputText value="#{c.cidade}" />
+					<f:param name="q" value="#{c.cidade}" />
+				</h:outputLink>
 			</h:column>
 		</h:dataTable>
+
+		<p>
+			<h:commandButton value="Salvar..." action="#{teste01.salvar}"
+				rendered="#{not empty teste01.clientes}" />
+		</p>
 
 	</h:form>
 </body>
