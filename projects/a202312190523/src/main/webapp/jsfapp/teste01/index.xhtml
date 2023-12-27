@@ -47,9 +47,11 @@
 				<h:message for="nome" />
 			</h:outputLabel>
 
-			<h:outputLabel value="Email:">
+			<h:panelGroup>
+				<h:outputLabel value="Email:" />
 				<h:inputText size="50" value="#{teste01.email}" id="email" />
-			</h:outputLabel>
+				<h:message for="email" />
+			</h:panelGroup>
 
 			<h:outputLabel value="Senha:">
 				<h:inputSecret size="25" value="#{teste01.senha}" id="senha" />
