@@ -7,6 +7,7 @@
 <h:head>
 	<title>Principal JSFApp</title>
 	<h:outputStylesheet library="css" name="ftabela.css" />
+	<h:outputScript library="js" name="tabela.js" />
 </h:head>
 <body>
 	<h1>JSFApp...</h1>
@@ -38,6 +39,7 @@
 			</h:column>
 			<h:column>
 				<f:facet name="header">Cidade</f:facet>
+				<h:graphicImage value="/imgs/cidades.jpg" onclick="selecionarCidade('#{c.cidade}');" />
 				<h:outputLink value="https://www.google.com/search">
 					<h:outputText value="#{c.cidade}" />
 					<f:param name="q" value="#{c.cidade}" />
