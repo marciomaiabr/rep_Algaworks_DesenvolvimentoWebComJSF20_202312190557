@@ -44,13 +44,13 @@
 			<h:outputLabel value="Nome completo:">
 				<h:inputText size="100" value="#{teste01.nome}" id="nome" />
 				<h:graphicImage value="/imgs/help.jpg" />
-				<h:message for="nome" errorClass="errorClass" />
+				<h:message for="nome" errorClass="errorClass" showDetail="false" showSummary="true" />
 			</h:outputLabel>
 
 			<h:panelGroup>
 				<h:outputLabel value="Email:" />
 				<h:inputText size="50" value="#{teste01.email}" id="email" />
-				<h:message for="email" />
+				<h:message errorClass="errorClass" for="email" showSummary="true" />
 			</h:panelGroup>
 
 			<h:outputLabel value="Senha:">
