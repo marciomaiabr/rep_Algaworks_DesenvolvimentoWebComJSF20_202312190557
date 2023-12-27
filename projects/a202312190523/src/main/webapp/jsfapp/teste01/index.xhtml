@@ -6,23 +6,7 @@
 
 <h:head>
 	<title>Principal JSFApp</title>
-	<style>
-.errorClass {
-	color: red;
-}
-
-.infoClass {
-	color: green;
-}
-
-.warnClass {
-	color: orange;
-}
-
-.fatalClass {
-	color: gray;
-}
-</style>
+	<style></style>
 </h:head>
 <body>
 	<h1>JSFApp...</h1>
@@ -30,42 +14,9 @@
 		<h:outputText value="mbts..." />
 		<h:outputText value="#{teste01.mbTs}" />
 	</h3>
-	<h3>202312260747...</h3>
+	<h3>202312270504...</h3>
 	<hr />
-	<h:form id="frmPrincipal">
-
-		<h:messages layout="table" errorClass="errorClass"
-			infoClass="infoClass" warnClass="warnClass" fatalClass="fatalClass"
-			showDetail="true" showSummary="false" globalOnly="true" />
-
-		<h:panelGrid columns="1">
-
-			<f:facet name="header">Cadastro de novo usuário</f:facet>
-
-			<h:outputLabel value="Nome completo:">
-				<h:inputText size="100" value="#{teste01.nome}" id="nome" />
-				<h:graphicImage value="/imgs/help.jpg" />
-				<h:message for="nome" errorClass="errorClass" showDetail="false"
-					showSummary="true" />
-			</h:outputLabel>
-
-			<h:panelGroup>
-				<h:outputLabel value="Email:" />
-				<h:inputText size="50" value="#{teste01.email}" id="email" />
-				<h:message errorClass="errorClass" for="email" showSummary="true" />
-			</h:panelGroup>
-
-			<h:outputLabel value="Senha:">
-				<h:inputSecret size="25" value="#{teste01.senha}" id="senha" />
-			</h:outputLabel>
-
-			<h:commandButton value="Cadastrar..." action="#{teste01.cadastrar}" />
-
-			<f:facet name="footer">
-				<h:outputText style="color:gray;" value="By MM 2023-2024 inc..." />
-			</f:facet>
-
-		</h:panelGrid>
+	<h:form>
 
 	</h:form>
 </body>
