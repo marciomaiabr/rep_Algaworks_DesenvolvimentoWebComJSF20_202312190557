@@ -18,6 +18,26 @@
 	<hr />
 	<h:form>
 
+		<p>
+			<h:commandButton value="Consultar..." action="#{teste01.consultar}" />
+		</p>
+
+		<h:dataTable value="#{teste01.clientes}" var="c" border="1"
+			rendered="#{not empty teste01.clientes}">
+			<h:column>
+				<f:facet name="header">Código</f:facet>
+				<h:outputText value="#{c.codigo}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				<h:outputText value="#{c.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Cidade</f:facet>
+				<h:outputText value="#{c.cidade}" />
+			</h:column>
+		</h:dataTable>
+
 	</h:form>
 </body>
 </html>
