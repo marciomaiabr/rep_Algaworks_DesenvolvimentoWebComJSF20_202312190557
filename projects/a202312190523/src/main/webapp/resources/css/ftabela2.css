@@ -1,0 +1,12 @@
+.cabecalho {
+	color: red;
+	background-color: black;
+}
+
+.linhaPar {
+	background-color: #c9c9c9;
+}
+
+.linhaImpar {
+	background-color: white;
+}
