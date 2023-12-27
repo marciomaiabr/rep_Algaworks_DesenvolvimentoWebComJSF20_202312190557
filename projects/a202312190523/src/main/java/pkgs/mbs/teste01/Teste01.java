@@ -59,6 +59,11 @@ public class Teste01 implements Serializable {
 		if(hojeDiaDescanso()) {
 			this.adicionarMensagem(null, FacesMessage.SEVERITY_WARN, "Hoje é dia de descanso", "Você não pode cadastrar usuário hoje");
 		}
+
+		FacesContext context = FacesContext.getCurrentInstance();
+		if(! context.getMessages().hasNext()) {
+			this.adicionarMensagem(null, FacesMessage.SEVERITY_INFO, "Operação realizada com sucesso", "Usuário cadastrado com sucesso");
+		}
 	}
 
 	private boolean hojeDiaDescanso() {
