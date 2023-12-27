@@ -32,6 +32,7 @@ public class Teste01 implements Serializable {
 
 	public void consultar() {
 		System.out.println("Teste01.consultar()");
+		this.getClientes().clear();
 		this.getClientes().add(new Cliente(1, "Marcio", "Cuiabá"));
 		this.getClientes().add(new Cliente(2, "Ana", "Belo"));
 		this.getClientes().add(new Cliente(3, "Carina", "Campo Grande"));
