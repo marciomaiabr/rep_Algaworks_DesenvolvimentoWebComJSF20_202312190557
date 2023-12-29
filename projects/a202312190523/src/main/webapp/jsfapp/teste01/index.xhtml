@@ -34,7 +34,7 @@
 			<h:outputLabel value="Código do produto:" />
 			<h:panelGroup>
 				<h:inputText value="#{teste01.itemEstoque.codigoProduto}"
-					id="codigoProduto">
+					id="codigoProduto" required="true">
 					<f:converter converterId="javax.faces.Byte" />
 				</h:inputText>
 				<h:message for="codigoProduto" />
