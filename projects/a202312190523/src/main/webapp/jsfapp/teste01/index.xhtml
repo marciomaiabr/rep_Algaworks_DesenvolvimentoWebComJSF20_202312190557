@@ -6,6 +6,9 @@
 
 <h:head>
 	<title>Principal JSFApp</title>
+
+	<style></style>
+
 </h:head>
 <body>
 	<h1>JSFApp...</h1>
@@ -22,7 +25,83 @@
 	<hr />
 	<h:form>
 
+		<h:messages globalOnly="true" layout="table" />
 
+		<h:panelGrid columns="2">
+
+			<f:facet name="header">Checagem de Estoque</f:facet>
+
+			<h:outputLabel value="Código do produto:" />
+			<h:panelGroup>
+				<h:inputText value="#{teste01.itemEstoque.codigoProduto}"
+					id="codigoProduto">
+					<f:converter converterId="javax.faces.Byte" />
+				</h:inputText>
+				<h:message for="codigoProduto" />
+			</h:panelGroup>
+			<h:outputLabel value="Descrição:" />
+			<h:panelGroup>
+				<h:inputText value="#{teste01.itemEstoque.descricao}" id="descricao" />
+				<h:message for="descricao" />
+			</h:panelGroup>
+			<h:outputLabel value="Quantidade:" />
+			<h:panelGroup>
+				<h:inputText value="#{teste01.itemEstoque.quantidade}"
+					id="quantidade" converter="javax.faces.Short" />
+				<h:message for="quantidade" />
+			</h:panelGroup>
+			<h:outputLabel value="Valor Unitário:" />
+			<h:panelGroup>
+				<h:inputText value="#{teste01.itemEstoque.valorUnitario}"
+					id="valorUnitario">
+					<f:convertNumber locale="pt_BR" />
+				</h:inputText>
+				<h:message for="valorUnitario" />
+			</h:panelGroup>
+			<h:outputLabel value="Data da checagem:" />
+			<h:panelGroup>
+				<h:inputText value="#{teste01.itemEstoque.dataChecagem}"
+					id="dataChecagem">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</h:inputText>
+				<h:message for="dataChecagem" />
+			</h:panelGroup>
+
+		</h:panelGrid>
+
+		<p>
+			<h:commandButton value="Incluir" action="#{teste01.incluir}" />
+		</p>
+
+		<hr />
+
+		<h:dataTable value="#{teste01.listaItemEstoque}" var="item"
+			rendered="#{not empty teste01.listaItemEstoque}" border="1">
+			<h:column>
+				<f:facet name="header">Código do produto</f:facet>
+				<h:outputText value="#{item.codigoProduto}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Descrição</f:facet>
+				<h:outputText value="#{item.descricao}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Quantidade</f:facet>
+				<h:outputText value="#{item.quantidade}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Valor Unitário</f:facet>
+				<h:outputText value="#{item.valorUnitario}">
+					<f:convertNumber type="currency" currencySymbol="$$" />
+				</h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Data da checagem</f:facet>
+				<h:outputText value="#{item.dataChecagem}">
+					<f:convertDateTime pattern="dd, MMMM yyyy" locale="en_US" />
+				</h:outputText>
+			</h:column>
+		</h:dataTable>
 
 	</h:form>
 </body>
