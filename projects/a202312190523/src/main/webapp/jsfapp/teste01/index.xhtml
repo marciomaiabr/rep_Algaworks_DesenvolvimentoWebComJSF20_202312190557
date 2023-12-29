@@ -60,6 +60,7 @@
 				<h:inputText value="#{teste01.itemEstoque.valorUnitario}"
 					id="valorUnitario">
 					<f:convertNumber locale="pt_BR" />
+					<f:validateDoubleRange minimum="0.8" />
 				</h:inputText>
 				<h:message for="valorUnitario" />
 			</h:panelGroup>
