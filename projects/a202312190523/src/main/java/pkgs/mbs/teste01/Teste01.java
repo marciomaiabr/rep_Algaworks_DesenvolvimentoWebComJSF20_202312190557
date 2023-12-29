@@ -26,10 +26,12 @@ public class Teste01 implements Serializable {
 	private ItemEstoque itemEstoque;
 
 	public ItemEstoque getItemEstoque() {
+		System.out.println("Teste01.getItemEstoque()[this.itemEstoque="+this.itemEstoque+"]");
 		return itemEstoque;
 	}
 
 	public void setItemEstoque(ItemEstoque itemEstoque) {
+		System.out.println("Teste01.setItemEstoque()[itemEstoque="+itemEstoque+"][this.itemEstoque="+this.itemEstoque+"]");
 		this.itemEstoque = itemEstoque;
 	}
 
@@ -40,9 +42,14 @@ public class Teste01 implements Serializable {
 	}
 
 	public void incluir() {
-		System.out.println("Teste01.incluir()");
+		System.out.println("Teste01.incluir()[this.itemEstoque="+this.itemEstoque+"]");
 		getListaItemEstoque().add(getItemEstoque());
 		setItemEstoque(new ItemEstoque());
+	}
+
+	public void limpar() {
+		System.out.println("Teste01.limpar()[this.itemEstoque="+this.itemEstoque+"]");
+		getListaItemEstoque().clear();
 	}
 
 	@PostConstruct

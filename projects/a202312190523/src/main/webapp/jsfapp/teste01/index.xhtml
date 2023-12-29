@@ -14,7 +14,7 @@
 	<h1>JSFApp...</h1>
 	<h3>
 		xhtmlV-
-		<h:outputText value="202312280627" />
+		<h:outputText value="202312290859" />
 		...
 	</h3>
 	<h3>
@@ -43,7 +43,8 @@
 			<h:panelGroup>
 				<h:inputText value="#{teste01.itemEstoque.descricao}" id="descricao"
 					required="true"
-					requiredMessage="Por favor informe uma descrição..." validatorMessage="Descrição com no mínimo 5 caracteres...">
+					requiredMessage="Por favor informe uma descrição..."
+					validatorMessage="Descrição com no mínimo 5 caracteres...">
 					<f:validateLength minimum="5" />
 				</h:inputText>
 				<h:message for="descricao" />
@@ -79,6 +80,7 @@
 
 		<p>
 			<h:commandButton value="Incluir" action="#{teste01.incluir}" />
+			<h:commandButton value="Limpar..." actionListener="#{teste01.limpar}" immediate="true" />
 		</p>
 
 		<hr />
