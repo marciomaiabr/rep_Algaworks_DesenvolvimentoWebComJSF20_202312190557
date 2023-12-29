@@ -47,7 +47,7 @@
 			<h:outputLabel value="Quantidade:" />
 			<h:panelGroup>
 				<h:inputText value="#{teste01.itemEstoque.quantidade}"
-					id="quantidade" converter="javax.faces.Short" />
+					id="quantidade" converter="javax.faces.Short" label="Quantidade" />
 				<h:message for="quantidade" />
 			</h:panelGroup>
 			<h:outputLabel value="Valor Unitário:" />
@@ -61,7 +61,7 @@
 			<h:outputLabel value="Data da checagem:" />
 			<h:panelGroup>
 				<h:inputText value="#{teste01.itemEstoque.dataChecagem}"
-					id="dataChecagem">
+					id="dataChecagem" label="Data da checagem">
 					<f:convertDateTime pattern="dd/MM/yyyy" />
 				</h:inputText>
 				<h:message for="dataChecagem" showSummary="true" showDetail="true" />
