@@ -41,7 +41,7 @@
 			</h:panelGroup>
 			<h:outputLabel value="Descrição:" />
 			<h:panelGroup>
-				<h:inputText value="#{teste01.itemEstoque.descricao}" id="descricao" >
+				<h:inputText value="#{teste01.itemEstoque.descricao}" id="descricao" required="true" >
 					<f:validateLength minimum="5" />
 				</h:inputText>
 				<h:message for="descricao" />
