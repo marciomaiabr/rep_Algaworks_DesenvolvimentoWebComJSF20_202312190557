@@ -50,7 +50,7 @@
 			<h:outputLabel value="Quantidade:" />
 			<h:panelGroup>
 				<h:inputText value="#{teste01.itemEstoque.quantidade}"
-					id="quantidade" converter="javax.faces.Short" label="Quantidade">
+					id="quantidade" converter="javax.faces.Short" label="Quantidade" required="true">
 					<f:validateLongRange minimum="1" maximum="999" />
 				</h:inputText>
 				<h:message for="quantidade" />
