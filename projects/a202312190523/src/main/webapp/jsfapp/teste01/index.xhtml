@@ -25,7 +25,7 @@
 	<hr />
 	<h:form>
 
-		<h:messages globalOnly="true" layout="table" />
+		<h:messages layout="table" showSummary="true" showDetail="false" />
 
 		<h:panelGrid columns="2">
 
@@ -37,7 +37,7 @@
 					id="codigoProduto" required="true">
 					<f:converter converterId="javax.faces.Byte" />
 				</h:inputText>
-				<h:message for="codigoProduto" />
+				<h:message for="codigoProduto" showSummary="false" showDetail="true" />
 			</h:panelGroup>
 			<h:outputLabel value="Descrição:" />
 			<h:panelGroup>
@@ -47,7 +47,7 @@
 					validatorMessage="Descrição com no mínimo 5 caracteres...">
 					<f:validateLength minimum="5" />
 				</h:inputText>
-				<h:message for="descricao" />
+				<h:message for="descricao" showSummary="false" showDetail="true" />
 			</h:panelGroup>
 			<h:outputLabel value="Quantidade:" />
 			<h:panelGroup>
@@ -56,7 +56,7 @@
 					required="true">
 					<f:validateLongRange minimum="1" maximum="999" />
 				</h:inputText>
-				<h:message for="quantidade" />
+				<h:message for="quantidade" showSummary="false" showDetail="true" />
 			</h:panelGroup>
 			<h:outputLabel value="Valor Unitário:" />
 			<h:panelGroup>
@@ -65,22 +65,21 @@
 					<f:convertNumber locale="pt_BR" />
 					<f:validateDoubleRange minimum="0.8" />
 				</h:inputText>
-				<h:message for="valorUnitario" />
+				<h:message for="valorUnitario" showSummary="false" showDetail="true" />
 			</h:panelGroup>
 			<h:outputLabel value="Data da checagem:" />
 			<h:panelGroup>
 				<h:inputText value="#{teste01.itemEstoque.dataChecagem}"
-					id="dataChecagem" label="Data da checagem">
-					<f:convertDateTime pattern="dd/MM/yyyy" />
-				</h:inputText>
-				<h:message for="dataChecagem" showSummary="true" showDetail="true" />
+					id="dataChecagem" label="Data da checagem" converter="mmConverters.SmartDateConverter" />
+				<h:message for="dataChecagem" showSummary="false" showDetail="true" />
 			</h:panelGroup>
 
 		</h:panelGrid>
 
 		<p>
 			<h:commandButton value="Incluir" action="#{teste01.incluir}" />
-			<h:commandButton value="Limpar..." actionListener="#{teste01.limpar}" immediate="true" />
+			<h:commandButton value="Limpar..." actionListener="#{teste01.limpar}"
+				immediate="true" />
 		</p>
 
 		<hr />
@@ -107,9 +106,7 @@
 			</h:column>
 			<h:column>
 				<f:facet name="header">Data da checagem</f:facet>
-				<h:outputText value="#{item.dataChecagem}">
-					<f:convertDateTime pattern="dd, MMMM yyyy" locale="en_US" />
-				</h:outputText>
+				<h:outputText value="#{item.dataChecagem}" converter="mmConverters.SmartDateConverter" />
 			</h:column>
 		</h:dataTable>
 
