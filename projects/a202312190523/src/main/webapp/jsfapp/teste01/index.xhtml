@@ -70,7 +70,9 @@
 			<h:outputLabel value="Data da checagem:" />
 			<h:panelGroup>
 				<h:inputText value="#{teste01.itemEstoque.dataChecagem}"
-					id="dataChecagem" label="Data da checagem" converter="mmConverters.SmartDateConverter" />
+					id="dataChecagem" label="Data da checagem" converter="mmConverters.SmartDateConverter" >
+					<f:validator validatorId="mmValidators.DiaUtilValidator" />
+				</h:inputText>
 				<h:message for="dataChecagem" showSummary="false" showDetail="true" />
 			</h:panelGroup>
 
