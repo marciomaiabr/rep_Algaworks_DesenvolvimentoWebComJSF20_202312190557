@@ -2,7 +2,7 @@ package pkgs.models;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class ItemEstoque implements Serializable {
 
@@ -10,7 +10,7 @@ public class ItemEstoque implements Serializable {
 	private String descricao;
 	private Short quantidade;
 	private BigDecimal valorUnitario;
-	private Date dataChecagem;
+	private LocalDate dataChecagem;
 
 	public Integer getCodigoProduto() {
 		return codigoProduto;
@@ -44,11 +44,11 @@ public class ItemEstoque implements Serializable {
 		this.valorUnitario = valorUnitario;
 	}
 
-	public Date getDataChecagem() {
+	public LocalDate getDataChecagem() {
 		return dataChecagem;
 	}
 
-	public void setDataChecagem(Date dataChecagem) {
+	public void setDataChecagem(LocalDate dataChecagem) {
 		this.dataChecagem = dataChecagem;
 	}
 
@@ -56,7 +56,7 @@ public class ItemEstoque implements Serializable {
 	}
 
 	public ItemEstoque(Integer codigoProduto, String descricao, Short quantidade, BigDecimal valorUnitario,
-			Date dataChecagem) {
+			LocalDate dataChecagem) {
 		this.codigoProduto = codigoProduto;
 		this.descricao = descricao;
 		this.quantidade = quantidade;
