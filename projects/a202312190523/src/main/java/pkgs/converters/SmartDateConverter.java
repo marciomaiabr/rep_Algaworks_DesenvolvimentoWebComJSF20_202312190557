@@ -2,6 +2,7 @@ package pkgs.converters;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.ResolverStyle;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
@@ -29,7 +30,7 @@ public class SmartDateConverter implements Converter {
 				dataConvertida = getDataHoje();
 			} else {
 				try {
-					dataConvertida = LocalDate.parse(value, FORMATADOR);
+					dataConvertida = LocalDate.parse(value, FORMATADOR.withResolverStyle(ResolverStyle.STRICT));
 				} catch (Exception e) {
 					FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Data incorreta",
 							"Informe uma data correta");
