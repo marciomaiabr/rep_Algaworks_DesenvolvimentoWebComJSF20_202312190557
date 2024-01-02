@@ -14,7 +14,7 @@ import javax.faces.convert.FacesConverter;
 @FacesConverter("mmConverters.SmartDateConverter")
 public class SmartDateConverter implements Converter {
 
-	private static final DateTimeFormatter FORMATADOR = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	//private static final DateTimeFormatter FORMATADOR = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
 	private LocalDate getDataHoje() {
 		return LocalDate.now();
@@ -30,7 +30,7 @@ public class SmartDateConverter implements Converter {
 				dataConvertida = getDataHoje();
 			} else {
 				try {
-					dataConvertida = LocalDate.parse(value, FORMATADOR.withResolverStyle(ResolverStyle.STRICT));
+					dataConvertida = LocalDate.parse(value, DateTimeFormatter.ofPattern("dd/MM/uuuu").withResolverStyle(ResolverStyle.STRICT));
 				} catch (Exception e) {
 					FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Data incorreta",
 							"Informe uma data correta");
@@ -50,7 +50,7 @@ public class SmartDateConverter implements Converter {
 		if(date.equals(getDataHoje()))
 			s = "hoje...";
 		else
-			s = FORMATADOR.format(date);
+			s = DateTimeFormatter.ofPattern("dd/MM/yyyy").format(date);
 		return s;
 	}
 
