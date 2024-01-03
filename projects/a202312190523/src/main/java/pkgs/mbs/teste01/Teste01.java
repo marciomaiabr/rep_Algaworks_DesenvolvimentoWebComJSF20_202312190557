@@ -67,7 +67,7 @@ public class Teste01 {
 	@PostConstruct
 	public void postConstruct() {
 		System.out.println("Teste01.postConstruct()");
-		buscaListItem();
+		//buscaListItem();
 	}
 
 	@PreDestroy
