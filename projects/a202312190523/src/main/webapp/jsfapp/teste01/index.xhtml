@@ -14,8 +14,8 @@
 		<p><h:commandButton value="Load..." action="#{teste01.buscaListItem}" /></p>
 		<p>
 			<h:outputLabel value="Item:" />
-			<h:selectOneMenu value="#{teste01.iIdItem}">
-				<f:selectItems value="#{teste01.listItem}" var="item" itemValue="#{item.idItem}" itemLabel="#{item.descItem}" />
+			<h:selectOneMenu value="#{teste01.item}" converter="mm.ItemConverter" >
+				<f:selectItems value="#{teste01.listItem}" var="item" itemValue="#{item}" itemLabel="#{item.descItem}" />
 			</h:selectOneMenu>
 		</p>
 		<p><h:commandButton value="Próximo..." action="#{teste01.proximo}" /></p>
