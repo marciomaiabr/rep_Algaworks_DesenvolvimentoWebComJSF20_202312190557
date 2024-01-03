@@ -11,14 +11,10 @@
 	<h1>JSFApp...</h1>
 	<hr/>
 	<h:form>
-		<p><h:commandButton value="Load..." action="#{teste01.buscaListItem}" /></p>
 		<p>
 			<h:outputLabel value="Item:" />
-			<h:selectOneMenu value="#{teste01.iIdItem}">
-				<f:selectItems value="#{teste01.listItem}" var="item" itemValue="#{item.idItem}" itemLabel="#{item.descItem}" />
-			</h:selectOneMenu>
+			<h:outputText value="#{teste01.iIdItem}" />
 		</p>
-		<p><h:commandButton value="Próximo..." action="#{teste01.proximo}" /></p>
 		<p><h:commandButton value="Salvar..." action="#{teste01.salvar}" /></p>
 	</h:form>
 </body>
