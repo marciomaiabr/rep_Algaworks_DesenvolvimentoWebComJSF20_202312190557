@@ -9,6 +9,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
 
 import com.algaworks.cursojsf2.financeiro.model.Lancamento;
 import com.algaworks.cursojsf2.financeiro.model.Pessoa;
@@ -26,6 +27,12 @@ public class CadastroLancamentoBean implements Serializable {
 	public void init() {
 		GestaoPessoas gestaoPessoas = new GestaoPessoas();
 		this.pessoas = gestaoPessoas.listarTodas();
+	}
+	
+	public void lancamentoPagoModificado(ValueChangeEvent event) {
+		this.lancamento.setPago((Boolean) event.getNewValue());
+		this.lancamento.setDataPagamento(null);
+		FacesContext.getCurrentInstance().renderResponse();
 	}
 	
 	public void cadastrar() {
