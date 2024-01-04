@@ -2,6 +2,13 @@ package com.algaworks.cursojsf2.financeiro.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class Pessoa implements Serializable {
 
 	private Integer codigo;
@@ -15,12 +22,15 @@ public class Pessoa implements Serializable {
 		this.nome = nome;
 	}
 	
+	@Id
+	@GeneratedValue
 	public Integer getCodigo() {
 		return codigo;
 	}
 	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
+	
 	public String getNome() {
 		return nome;
 	}
