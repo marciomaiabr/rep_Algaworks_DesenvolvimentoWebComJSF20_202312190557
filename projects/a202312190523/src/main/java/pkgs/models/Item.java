@@ -1,11 +1,13 @@
 package pkgs.models;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Item {
 
 	private Integer idItem;
 	private String descItem;
+	private List<SubItem> ListSubItem;
 
 	public Integer getIdItem() {
 		return idItem;
@@ -21,6 +23,14 @@ public class Item {
 
 	public void setDescItem(String descItem) {
 		this.descItem = descItem;
+	}
+
+	public List<SubItem> getListSubItem() {
+		return ListSubItem;
+	}
+
+	public void setListSubItem(List<SubItem> listSubItem) {
+		ListSubItem = listSubItem;
 	}
 
 	public Item() {
