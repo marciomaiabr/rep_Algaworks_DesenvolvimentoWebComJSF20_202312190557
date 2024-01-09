@@ -46,4 +46,9 @@ public class LancamentosHibernate implements Lancamentos {
 				.uniqueResult();
 	}
 
+	@Override
+	public Lancamento porCodigo(Integer codigo) {
+		throw new UnsupportedOperationException("No implemented method");
+	}
+
 }

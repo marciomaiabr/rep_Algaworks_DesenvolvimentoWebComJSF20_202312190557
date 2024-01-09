@@ -61,6 +61,15 @@ public class CadastroLancamentoBean implements Serializable {
 		return lancamento;
 	}
 
+	public void setLancamento(Lancamento lancamento) throws CloneNotSupportedException {
+		this.lancamento = lancamento;
+		if(this.lancamento == null) {
+			this.lancamento = new Lancamento();
+		} else {
+			this.lancamento = (Lancamento) lancamento.clone();
+		}
+	}
+
 	public List<Pessoa> getPessoas() {
 		return pessoas;
 	}

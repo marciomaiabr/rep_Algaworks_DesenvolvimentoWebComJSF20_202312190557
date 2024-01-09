@@ -17,7 +17,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="lancamento")
-public class Lancamento implements Serializable {
+public class Lancamento implements Serializable, Cloneable {
 
 	private Integer codigo;
 	private TipoLancamento tipo;
@@ -120,6 +120,11 @@ public class Lancamento implements Serializable {
 		return "Lancamento [codigo=" + codigo + ", tipo=" + tipo + ", pessoa=" + pessoa + ", descricao=" + descricao
 				+ ", valor=" + valor + ", dataVencimento=" + dataVencimento + ", pago=" + pago + ", dataPagamento="
 				+ dataPagamento + "]";
+	}
+
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
 	}
 
 }

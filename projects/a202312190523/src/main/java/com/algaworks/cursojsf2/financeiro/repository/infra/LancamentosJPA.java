@@ -1,15 +1,11 @@
 package com.algaworks.cursojsf2.financeiro.repository.infra;
 
-import java.math.BigDecimal;
-import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import com.algaworks.cursojsf2.financeiro.model.Lancamento;
-import com.algaworks.cursojsf2.financeiro.model.Pessoa;
-import com.algaworks.cursojsf2.financeiro.model.TipoLancamento;
 import com.algaworks.cursojsf2.financeiro.repository.Lancamentos;
 
 public class LancamentosJPA implements Lancamentos {
@@ -56,6 +52,11 @@ public class LancamentosJPA implements Lancamentos {
 		query.setParameter("valor", lancamento.getValor());
 		query.setParameter("dataVencimento", lancamento.getDataVencimento());
 		return query.getResultStream().findFirst().orElse(null);
+	}
+
+	@Override
+	public Lancamento porCodigo(Integer codigo) {
+		return entityManager.find(Lancamento.class, codigo);
 	}
 
 }
