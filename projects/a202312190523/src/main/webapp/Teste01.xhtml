@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Teste</title>
+		
+	</h:head>
+	<h:body>
+
+		<h1>Teste...</h1>
+		<h3>20240109-0542...</h3>
+
+		<h:form id="frm">
+
+			<h:outputLabel value="Descrição:">
+				<h:inputText id="iptTextDescricao" value="#{teste01.descricao}">
+					<f:ajax event="keyup" render="frm:optTextDescricao optTextDescricao2" />
+				</h:inputText>
+			</h:outputLabel>
+			<br/>
+			Saída1: <h:outputText id="optTextDescricao" value="#{teste01.descricao}" />
+			<br/>
+			Saída2: <h:outputText id="optTextDescricao2" value="#{teste01.descricao}" />
+
+		</h:form>
+
+	</h:body>
+</html>
