@@ -6,22 +6,24 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title><ui:insert name="titulo">Financeiro</ui:insert> </title>
+		<title><ui:insert name="titulo">Financeiro</ui:insert></title>
 		
 		<h:outputStylesheet library="css" name="sistema.css"/>
 	</h:head>
 	<h:body>
 		<div id="header">
 			<ui:insert name="cabecalho">
-				<ui:include src="/templates/Cabecalho.xhtml" />
+				<ui:include src="/template/Cabecalho.xhtml"/>
 			</ui:insert>
 		</div>
+		
 		<div id="content">
 			<ui:insert name="conteudo" />
 		</div>
+		
 		<div id="footer">
-			<ui:insert name="rodape">
-				<ui:include src="/templates/Rodape.xhtml" />
+			<ui:insert name="cabecalho">
+				<ui:include src="/template/Rodape.xhtml"/>
 			</ui:insert>
 		</div>
 	</h:body>

@@ -1,14 +1,15 @@
-
-<ui:composition template="/templates/LayoutPadrao.xhtml"
- xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition template="/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
->
-
+	xmlns:aw="http://java.sun.com/jsf/composite/algaworks">
+	
 	<ui:define name="titulo">Lançamentos</ui:define>
-
+	
 	<ui:define name="conteudo">
+		<h:outputStylesheet library="css" name="consulta-lancamentos.css"/>
+	
 		<h1>Lançamentos</h1>
 
 		<h:form id="frm">
@@ -48,9 +49,7 @@
 						Valor
 					</f:facet>
 				
-					<h:outputText value="#{lancamento.valor}" styleClass="#{lancamento.tipo.toString().toLowerCase()}">
-						<f:convertNumber locale="pt_BR" currencySymbol="R$" type="currency"/>
-					</h:outputText>
+					<aw:outputValorLancamento lancamentoBean="#{lancamento}" />
 				</h:column>
 			
 				<h:column>
@@ -85,8 +84,9 @@
 				<h:column>
 					<h:link outcome="CadastroLancamento">
 						<h:graphicImage value="/imagens/editar.png"/>
-						<f:param name="codigo" value="#{lancamento.codigo}" />
+						<f:param name="codigo" value="#{lancamento.codigo}"/>
 					</h:link>
+					
 					<h:commandLink action="#{consultaLancamentoBean.excluir}">
 						<h:graphicImage value="/imagens/excluir.png"/>
 						<f:setPropertyActionListener target="#{consultaLancamentoBean.lancamentoSelecionado}" 
@@ -97,5 +97,5 @@
 			</h:dataTable>
 		</h:form>
 	</ui:define>
-
+	
 </ui:composition>

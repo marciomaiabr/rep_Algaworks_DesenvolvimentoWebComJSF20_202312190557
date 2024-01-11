@@ -48,7 +48,7 @@ public class LancamentosHibernate implements Lancamentos {
 
 	@Override
 	public Lancamento porCodigo(Integer codigo) {
-		throw new UnsupportedOperationException("No implemented method");
+		return (Lancamento) this.session.get(Lancamento.class, codigo);
 	}
 
 }

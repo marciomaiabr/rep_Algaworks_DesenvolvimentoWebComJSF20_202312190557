@@ -5,12 +5,12 @@
 
 <hibernate-configuration>
 	<session-factory>
-		<property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-		<property name="hibernate.connection.url">jdbc:sqlserver://localhost;trustServerCertificate=true;database=db202312190523;user=sa;password=senhasa;</property>
-		<property name="hibernate.connection.username">sa</property>
-		<property name="hibernate.connection.password">senhasa</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost/cursojsf</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">algaworks</property>
 
-		<property name="dialect">org.hibernate.dialect.SQLServerDialect</property>		
+		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>		
 		<property name="show_sql">true</property>
 		<property name="format_sql">true</property>
 		

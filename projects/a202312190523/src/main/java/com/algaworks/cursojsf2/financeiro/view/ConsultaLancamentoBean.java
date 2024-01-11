@@ -24,10 +24,6 @@ public class ConsultaLancamentoBean implements Serializable {
 	
 	@PostConstruct
 	public void inicializar() {
-		pesquisar();
-	}
-
-	public void pesquisar() {
 		Lancamentos lancamentos = this.repositorios.getLancamentos();
 		this.lancamentos = lancamentos.todos();
 	}
