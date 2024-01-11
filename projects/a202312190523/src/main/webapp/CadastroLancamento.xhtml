@@ -1,21 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+
+<ui:composition template="/templates/LayoutPadrao.xhtml"
+ xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core">
-	<f:metadata>
-			<f:viewParam name="codigo" value="#{cadastroLancamentoBean.lancamento}" />
-	</f:metadata>
-	<h:head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Novo lançamento</title>
-		
-		<h:outputStylesheet library="css" name="sistema.css"/>
-	</h:head>
-	<h:body>
+	xmlns:f="http://java.sun.com/jsf/core"
+>
 
-		<h1>Novo lançamento</h1>
+	<ui:define name="conteudo">
+
+		<f:metadata>
+			<f:viewParam name="codigo" value="#{cadastroLancamentoBean.lancamento}" />
+		</f:metadata>
+
+		<h1><h:outputText value="#{cadastroLancamentoBean.lancamento.codigo == null ? 'Novo lançamento' : 'Editando lançamento'}" /></h1>
 
 		<h:form id="frm">
 		
@@ -28,7 +25,10 @@
 
 			<h:panelGrid columns="2" styleClass="form-grid"
 					columnClasses="label, campo" id="panel">
-			
+
+				<h:outputLabel value="Código" rendered="#{cadastroLancamentoBean.lancamento.codigo != null}" />
+				<h:outputText value="#{cadastroLancamentoBean.lancamento.codigo}" rendered="#{cadastroLancamentoBean.lancamento.codigo != null}" />
+
 				<h:outputLabel value="Tipo"/>
 				<h:selectOneRadio value="#{cadastroLancamentoBean.lancamento.tipo}"
 						required="true" label="Tipo do lançamento">
@@ -81,11 +81,13 @@
 				</h:inputText>
 				
 				<h:outputLabel/>
-				<h:commandButton value="Cadastrar" action="#{cadastroLancamentoBean.cadastrar}" >
+				<h:commandButton value="Salvar" action="#{cadastroLancamentoBean.cadastrar}" >
 					<f:ajax execute="@form" render="@all" />
 				</h:commandButton>
 			</h:panelGrid>
 			
 		</h:form>
-	</h:body>
-</html>
+
+	</ui:define>
+
+</ui:composition>
