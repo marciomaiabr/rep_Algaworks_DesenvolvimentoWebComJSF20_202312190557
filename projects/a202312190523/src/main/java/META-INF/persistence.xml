@@ -6,7 +6,7 @@
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.SQLServerDialect" />
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:sqlserver://localhost;trustServerCertificate=true;database=db202312190523;user=sa;password=senhasa;" />
+				value="jdbc:sqlserver://localhost:1433;trustServerCertificate=true;database=db202312190523;user=sa;password=senhasa;" />
 			<property name="javax.persistence.jdbc.user" value="sa" />
 			<property name="javax.persistence.jdbc.password"
 				value="senhasa" />
