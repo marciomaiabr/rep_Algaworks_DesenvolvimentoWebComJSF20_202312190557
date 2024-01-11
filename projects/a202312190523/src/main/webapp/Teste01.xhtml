@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:mmc="http://java.sun.com/jsf/composite/mmcomponents">
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>Teste</title>
@@ -12,58 +13,15 @@
 	<h:body>
 
 		<h1>Teste...</h1>
-		<h3>20240109-0542...</h3>
+		<h3>20240111-0518...</h3>
 
-		<h:form id="frmt1">
+		<h:form id="frm01">
 
-			<h:outputLabel value="Descrição:">
-				<h:inputText id="iptTextDescricaot1" value="#{teste01.descricao}">
-					<f:ajax event="keyup" render="frmt1:optTextDescricaot1 optTextDescricao2t1" />
-				</h:inputText>
-			</h:outputLabel>
-			<br/>
-			Saída1: <h:outputText id="optTextDescricaot1" value="#{teste01.descricao}" />
-			<br/>
-			Saída2: <h:outputText id="optTextDescricao2t1" value="#{teste01.descricao}" />
+			<mmc:mmOutputLabelWithInputText id="mmc01" mmLabel="Descrição:" mmValue="#{teste01.descricao}" />
 
-		</h:form>
+			<br />
 
-		<hr />
-
-		<h:form id="frmt2">
-
-			<h:outputLabel value="Descrição:">
-				<h:inputText id="iptTextDescricaot2" value="#{teste01.descricao}">
-					<f:ajax event="keyup" render="frmt2:optTextDescricaot2 optTextDescricao2t2" />
-				</h:inputText>
-			</h:outputLabel>
-			<br/>
-			Saída1: <h:outputText id="optTextDescricaot2" value="#{teste01.descricao}" />
-			<br/>
-			Saída2: <h:outputText id="optTextDescricao2t2" value="#{teste01.descricao}" />
-
-		</h:form>
-
-		<hr />
-
-		<h:form id="frmt3">
-
-			<h:outputLabel value="Descrição:">
-				<h:inputText id="iptTextDescricaot3" value="#{teste01.descricao}">
-					<f:ajax execute="frmt3:iptTextDescricao2t3" event="keyup" render="frmt3:optTextDescricaot3 optTextDescricao2t3" />
-				</h:inputText>
-			</h:outputLabel>
-
-			<h:outputLabel value="Descrição2:">
-				<h:inputText id="iptTextDescricao2t3" value="#{teste01.descricao}">
-					<f:ajax event="keyup" render="frmt3:optTextDescricaot3 optTextDescricao2t3" />
-				</h:inputText>
-			</h:outputLabel>
-
-			<br/>
-			Saída1: <h:outputText id="optTextDescricaot3" value="#{teste01.descricao}" />
-			<br/>
-			Saída2: <h:outputText id="optTextDescricao2t3" value="#{teste01.descricao}" />
+			<h:outputText value="#{teste01.descricao}" />
 
 		</h:form>
 
