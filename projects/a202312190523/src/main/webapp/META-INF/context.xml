@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Realm className="org.apache.catalina.realm.JDBCRealm"
+		driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+		connectionURL="jdbc:sqlserver://localhost:1433;trustServerCertificate=true;database=db202312190523;user=sa;password=senhasa;"
+		connectionName="sa" connectionPassword="senhasa" userTable="usuario"
+		userNameCol="nome_usuario" userCredCol="senha"
+		userRoleTable="permissao_usuario" roleNameCol="nome_permissao" />
+</Context>
