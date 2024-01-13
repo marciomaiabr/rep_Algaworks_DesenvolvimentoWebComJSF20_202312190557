@@ -13,42 +13,39 @@ public class SegurancaBean {
 
 	private String usuario;
 	private String senha;
-
-	public String getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
+	
 	public String logar() {
 		try {
-			this.getRequest().login(usuario, senha);
+			this.getRequest().login(this.usuario, this.senha);
 			return "Home?faces-redirect=true";
-		} catch (Exception e) {
-			e.printStackTrace();
-			FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_ERROR, FacesUtil.getMensagemI18n("username_password_does_not_match"));
+		} catch (ServletException e) {
+			FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_ERROR, 
+					FacesUtil.getMensagemI18n("username_password_does_not_match"));
 			return null;
 		}
 	}
-
+	
 	public String sair() throws ServletException {
 		this.getRequest().logout();
-		return "Home?faces-redirect=true";
+		return "Login?faces-redirect=true";
 	}
-
+	
 	private HttpServletRequest getRequest() {
 		FacesContext context = FacesContext.getCurrentInstance();
 		return (HttpServletRequest) context.getExternalContext().getRequest();
 	}
-
+	
+	public String getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	
 }
