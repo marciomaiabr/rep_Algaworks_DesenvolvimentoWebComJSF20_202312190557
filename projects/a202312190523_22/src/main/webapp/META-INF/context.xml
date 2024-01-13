@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Realm className="org.apache.catalina.realm.JDBCRealm"
+		driverName="com.mysql.jdbc.Driver"
+		connectionURL="jdbc:mysql://localhost/scma202401120903"
+		connectionName="root" connectionPassword="senharoot" userTable="usuario"
+		userNameCol="nome_usuario" userCredCol="senha"
+		userRoleTable="permissao_usuario" roleNameCol="nome_permissao" >
+
+<CredentialHandler className="org.apache.catalina.realm.MessageDigestCredentialHandler"
+algorithm="MD5"
+iterations="1"
+saltlenght="0"
+/>
+
+	</Realm>
+</Context>
