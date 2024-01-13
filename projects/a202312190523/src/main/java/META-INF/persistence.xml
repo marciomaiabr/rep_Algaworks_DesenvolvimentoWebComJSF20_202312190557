@@ -6,10 +6,10 @@
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.MySQL5Dialect" />
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:mysql://localhost/scma202401120903" />
-			<property name="javax.persistence.jdbc.user" value="root" />
+				value="jdbc:mysql://sql10.freesqldatabase.com/sql10676467" />
+			<property name="javax.persistence.jdbc.user" value="sql10676467" />
 			<property name="javax.persistence.jdbc.password"
-				value="senharoot" />
+				value="1nujGLNeBW" />
 			<property name="javax.persistence.jdbc.driver"
 				value="com.mysql.jdbc.Driver" />
 			<property name="hibernate.show_sql" value="false" />
