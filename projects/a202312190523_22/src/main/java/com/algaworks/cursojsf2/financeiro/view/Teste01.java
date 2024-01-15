@@ -1,9 +1,17 @@
 package com.algaworks.cursojsf2.financeiro.view;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.Serializable;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.servlet.http.Part;
+
+import com.algaworks.cursojsf2.financeiro.util.FacesUtil;
 
 @ManagedBean
 public class Teste01 implements Serializable {
@@ -17,27 +25,43 @@ public class Teste01 implements Serializable {
 		System.out.println("Teste01.postConstruct()");
 	}
 
-	private String nome;
-	private String cor;
+	private String descricao;
+	private Part arquivo;
 
-	public void exibir() {
-		System.out.println("[this.nome="+this.nome+"][this.cor="+this.cor+"]");
+	public void enviar() {
+		String nomeArquivoSaida = "C:\\tmp\\"+arquivo.getSubmittedFileName();
+		try(
+				InputStream is = arquivo.getInputStream();
+				OutputStream out = new FileOutputStream(nomeArquivoSaida);
+				){
+
+			int read = 0;
+			byte [] bytes = new byte[1024];
+			
+			while((read = is.read(bytes)) != -1) {
+				out.write(bytes, 0, read);
+			}
+
+			FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_INFO, "Arquivo \""+descricao+"\" enviado com sucesso.");
+		} catch(IOException e) {
+			FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_ERROR, "Erro ao enviar arquivo.");
+		}
 	}
 
-	public String getNome() {
-		return nome;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
-	public String getCor() {
-		return cor;
+	public Part getArquivo() {
+		return arquivo;
 	}
 
-	public void setCor(String cor) {
-		this.cor = cor;
+	public void setArquivo(Part arquivo) {
+		this.arquivo = arquivo;
 	}
 
 }
