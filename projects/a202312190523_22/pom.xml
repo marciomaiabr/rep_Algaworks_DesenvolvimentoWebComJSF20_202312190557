@@ -9,13 +9,20 @@
   <dependencies>
 
 <!-- dependências do Dynamic Web Module 3.0 -->
-<!---->
+  	<dependency>
+  		<groupId>javax.servlet</groupId>
+  		<artifactId>javax.servlet-api</artifactId>
+  		<version>4.0.1</version>
+  		<scope>provided</scope>
+  	</dependency>
+<!--
   	<dependency>
   		<groupId>javax.servlet</groupId>
   		<artifactId>javax.servlet-api</artifactId>
   		<version>3.1.0</version>
   		<scope>provided</scope>
   	</dependency>
+-->
 
 
 <!-- dependências do JSP 2.0 -->
