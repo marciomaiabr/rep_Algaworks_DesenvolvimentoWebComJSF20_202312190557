@@ -14,19 +14,30 @@ public class Teste01 implements Serializable {
 
 	@PostConstruct
 	public void postConstruct() {
-		System.out.println("Teste01.postConstruct()[this.descricao="+this.descricao+"]");
+		System.out.println("Teste01.postConstruct()");
 	}
 
-	private String descricao;
+	private String nome;
+	private String cor;
 
-	public String getDescricao() {
-		System.out.println("Teste01.getDescricao()[this.descricao="+this.descricao+"]");
-		return descricao;
+	public void exibir() {
+		System.out.println("[this.nome="+this.nome+"][this.cor="+this.cor+"]");
 	}
 
-	public void setDescricao(String descricao) {
-		System.out.println("Teste01.setDescricao()[descricao="+descricao+"][this.descricao="+this.descricao+"]");
-		this.descricao = descricao;
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getCor() {
+		return cor;
+	}
+
+	public void setCor(String cor) {
+		this.cor = cor;
 	}
 
 }
