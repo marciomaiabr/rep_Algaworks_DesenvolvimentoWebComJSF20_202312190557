@@ -9,9 +9,10 @@
 	<ui:define name="conteudo">
 		<f:metadata>
 			<f:viewParam name="codigo" value="#{cadastroLancamentoBean.lancamento}"/>
+			<f:viewAction action="#{cadastroLancamentoBean.init}"></f:viewAction>
 		</f:metadata>
 		
-		<h1>#{cadastroLancamentoBean.editando ? msg.editing_entry : msg.new_entry}</h1>
+		<h1>#{cadastroLancamentoBean.editando ? msg.editing_entry : msg.new_entry}33</h1>
 
 		<h:form id="frm">
 		

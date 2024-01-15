@@ -29,9 +29,21 @@ public class CadastroLancamentoBean implements Serializable {
 	private Lancamento lancamento = new Lancamento();
 
 	@PostConstruct
-	public void init() {
+	public void postConstruct() {
+		System.out.println("CadastroLancamentoBean.postConstruct()");
+	}
+	
+	public String init() {
+		System.out.println("CadastroLancamentoBean.init()");
+		if(this.lancamento.isPago()) {
+			FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_ERROR, "Lançamento pago não pode ser editado");
+			return "ConsultaLancamento";
+		}
+		
 		Pessoas pessoas = this.repositorios.getPessoas();
 		this.pessoas = pessoas.todas();
+		
+		return null;
 	}
 	
 	public void lancamentoPagoModificado(ValueChangeEvent event) {
@@ -66,6 +78,7 @@ public class CadastroLancamentoBean implements Serializable {
 	}
 	
 	public void setLancamento(Lancamento lancamento) throws CloneNotSupportedException {
+		System.out.println("CadastroLancamentoBean.setLancamento()");
 		this.lancamento = lancamento;
 		if (this.lancamento == null) {
 			this.lancamento = new Lancamento();
