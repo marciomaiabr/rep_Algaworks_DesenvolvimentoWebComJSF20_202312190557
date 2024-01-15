@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -27,6 +28,7 @@ public class Lancamento implements Serializable, Cloneable {
 	private Date dataVencimento;
 	private boolean pago;
 	private Date dataPagamento;
+	private byte [] comprovante;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -120,6 +122,14 @@ public class Lancamento implements Serializable, Cloneable {
 		return "Lancamento [codigo=" + codigo + ", tipo=" + tipo + ", pessoa=" + pessoa + ", descricao=" + descricao
 				+ ", valor=" + valor + ", dataVencimento=" + dataVencimento + ", pago=" + pago + ", dataPagamento="
 				+ dataPagamento + "]";
+	}
+
+	//@Lob
+	public byte[] getComprovante() {
+		return comprovante;
+	}
+	public void setComprovante(byte[] comprovante) {
+		this.comprovante = comprovante;
 	}
 
 	@Override

@@ -14,7 +14,7 @@
 		
 		<h1>#{cadastroLancamentoBean.editando ? msg.editing_entry : msg.new_entry}33</h1>
 
-		<h:form id="frm">
+		<h:form id="frm" enctype="multipart/form-data">
 		
 			<h:button value="#{msg.new_msg}" outcome="CadastroLancamento" />
 			<h:button value="#{msg.search}" outcome="ConsultaLancamento" 
@@ -78,8 +78,14 @@
 					<f:attribute name="checado" value="#{cadastroLancamentoBean.lancamento.pago}"/>
 				</h:inputText>
 				
+				<h:outputLabel value="Recibo de pagamento" rendered="#{cadastroLancamentoBean.lancamento.pago}"/>
+				<h:inputFile value="#{cadastroLancamentoBean.arquivoComprovante}" 
+						label="Recibo de pagamento"
+						rendered="#{cadastroLancamentoBean.lancamento.pago}"
+						validator="com.algaworks.Comprovante" />
+
 				<h:outputLabel/>
-				<h:commandButton value="#{msg.save}" action="#{cadastroLancamentoBean.salvar}">
+				<h:commandButton value="#{msg.save}" action="#{cadastroLancamentoBean.salvar}" actionListener="#{cadastroLancamentoBean.uploadComprovante}">
 					<f:ajax execute="@form" render="@all"/>
 				</h:commandButton>
 			</h:panelGrid>
