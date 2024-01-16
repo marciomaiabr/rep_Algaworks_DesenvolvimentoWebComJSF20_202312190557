@@ -1,4 +1,4 @@
-package com.algaworks.cursojsf2.financeiro.service;
+package com.algaworks.cursojsf2.financeiro.exceptions;
 
 public class RegraNegocioException extends Exception {
 
