@@ -6,18 +6,6 @@
     version="2.2">
     
     <application>
-
-		<resource-library-contracts>
-			<contract-mapping>
-				<url-pattern>/pasta01/*</url-pattern>
-				<contracts>admin</contracts>
-			</contract-mapping>
-			<contract-mapping>
-				<url-pattern>*</url-pattern>
-				<contracts>usuario</contracts>
-			</contract-mapping>
-		</resource-library-contracts>
-
         <message-bundle>com.algaworks.cursojsf2.financeiro.resources.validacao</message-bundle>
         
         <resource-bundle>

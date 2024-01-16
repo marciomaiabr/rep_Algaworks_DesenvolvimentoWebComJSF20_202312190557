@@ -1,7 +1,5 @@
 package com.algaworks.cursojsf2.financeiro.validator;
 
-import java.util.Date;
-
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -24,7 +22,7 @@ public class ComprovanteValidator implements Validator {
 		if (arquivo != null && !"application/pdf".equals(arquivo.getContentType())) {
 			Object label = MessageFactory.getLabel(context, component);
 			
-			String descricaoErro = label + " " + "Somente arquivo PDF";
+			String descricaoErro = label + " " + FacesUtil.getMensagemI18n("is_not_a_proper_file");
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
 					descricaoErro, descricaoErro);
 			throw new ValidatorException(message);

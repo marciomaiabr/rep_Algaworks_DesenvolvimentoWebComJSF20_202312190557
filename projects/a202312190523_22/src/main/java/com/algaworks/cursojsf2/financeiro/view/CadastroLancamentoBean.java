@@ -1,15 +1,12 @@
 package com.algaworks.cursojsf2.financeiro.view;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -31,22 +28,20 @@ import com.algaworks.cursojsf2.financeiro.util.Repositorios;
 @ViewScoped
 public class CadastroLancamentoBean implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	private Repositorios repositorios = new Repositorios();
 	private List<Pessoa> pessoas = new ArrayList<Pessoa>();
 	private Lancamento lancamento = new Lancamento();
 	private transient Part arquivoComprovante;
 
-	@PostConstruct
-	public void postConstruct() {
-		System.out.println("CadastroLancamentoBean.postConstruct()");
-	}
-	
 	public String init() {
-		System.out.println("CadastroLancamentoBean.init()");
-		/*if(this.lancamento.isPago()) {
-			FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_ERROR, "Lançamento pago não pode ser editado");
-			return "ConsultaLancamento";
-		}*/
+//		if (this.lancamento.isPago()) {
+//			FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_ERROR, 
+//					"Lançamento pago não pode ser editado");
+//			
+//			return "ConsultaLancamento";
+//		}
 		
 		Pessoas pessoas = this.repositorios.getPessoas();
 		this.pessoas = pessoas.todas();
@@ -59,28 +54,26 @@ public class CadastroLancamentoBean implements Serializable {
 		this.lancamento.setDataPagamento(null);
 		FacesContext.getCurrentInstance().renderResponse();
 	}
-	
+
 	public void uploadComprovante(ActionEvent event) {
-		if(arquivoComprovante != null) {
-			try(
-					InputStream is = arquivoComprovante.getInputStream();
-					ByteArrayOutputStream out = new ByteArrayOutputStream();
-					){
-
-				int read = -1;
-				byte [] bytes = new byte[1024];
+		if (arquivoComprovante != null) {
+			try (InputStream is = arquivoComprovante.getInputStream();
+					ByteArrayOutputStream out = new ByteArrayOutputStream()) {
 				
-				while((read = is.read(bytes)) != -1) {
-					out.write(bytes, 0, read);
-				}
-
-				lancamento.setComprovante(out.toByteArray());
-			} catch(IOException e) {
+				int read = -1;
+                byte[] buffer = new byte[1024];
+                
+                while ((read = is.read(buffer)) != -1) {
+                    out.write(buffer, 0, read);
+                }
+				
+                lancamento.setComprovante(out.toByteArray());
+			} catch (IOException e) {
 				throw new RuntimeException("Erro ao enviar arquivo.", e);
 			}
 		}
 	}
-
+	
 	public void salvar() {
 		GestaoLancamentos gestaoLancamentos = new GestaoLancamentos(this.repositorios.getLancamentos());
 		try {
@@ -107,7 +100,6 @@ public class CadastroLancamentoBean implements Serializable {
 	}
 	
 	public void setLancamento(Lancamento lancamento) throws CloneNotSupportedException {
-		System.out.println("CadastroLancamentoBean.setLancamento()");
 		this.lancamento = lancamento;
 		if (this.lancamento == null) {
 			this.lancamento = new Lancamento();

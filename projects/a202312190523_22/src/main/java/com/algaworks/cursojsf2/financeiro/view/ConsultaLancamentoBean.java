@@ -24,6 +24,8 @@ import com.algaworks.cursojsf2.financeiro.util.Repositorios;
 @ManagedBean
 public class ConsultaLancamentoBean implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	private Repositorios repositorios = new Repositorios();
 	private List<Lancamento> lancamentos = new ArrayList<Lancamento>();
 	private Lancamento lancamentoSelecionado;
@@ -48,7 +50,7 @@ public class ConsultaLancamentoBean implements Serializable {
 	}
 	
 	public void downloadComprovante() throws IOException {
-		if(!lancamentoSelecionado.isPago() || lancamentoSelecionado.getComprovante() == null) {
+		if (!lancamentoSelecionado.isPago() || lancamentoSelecionado.getComprovante() == null) {
 			FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_ERROR, "Lançamento não possui comprovante!");
 			return;
 		}
@@ -60,25 +62,20 @@ public class ConsultaLancamentoBean implements Serializable {
 		
 		externalContext.responseReset();
 		externalContext.setResponseContentType("application/pdf");
-		externalContext.setResponseHeader("Content-Disposition", "attachment; filename=\""+nomeArquivo+"\"");
+		externalContext.setResponseHeader("Content-Disposition", "attachment; filename=\"" + nomeArquivo + "\"");
 		
 		OutputStream out = externalContext.getResponseOutputStream();
 		
-		try(
-				InputStream is = new ByteArrayInputStream(lancamentoSelecionado.getComprovante())
-				){
-			
-			int read = -1;
-			byte [] bytes = new byte[1024];
-			
-			while((read = is.read(bytes)) != -1) {
-				out.write(bytes, 0, read);
-			}
-			
+		try (InputStream is = new ByteArrayInputStream(lancamentoSelecionado.getComprovante())) {
+            int read = -1;
+            byte[] buffer = new byte[1024];
+            
+            while ((read = is.read(buffer)) != -1) {
+                out.write(buffer, 0, read);
+            }
 		}
 		
 		facesContext.responseComplete();
-		
 	}
 	
 	public List<Lancamento> getLancamentos() {
