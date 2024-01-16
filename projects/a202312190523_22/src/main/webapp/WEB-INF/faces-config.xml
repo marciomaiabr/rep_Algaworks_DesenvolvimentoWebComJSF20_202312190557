@@ -5,6 +5,11 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
     version="2.2">
     
+
+	<factory>
+		<exception-handler-factory>com.algaworks.cursojsf2.financeiro.exceptions.CustomExceptionHandlerFactory</exception-handler-factory>
+	</factory>
+
     <application>
         <message-bundle>com.algaworks.cursojsf2.financeiro.resources.validacao</message-bundle>
         
