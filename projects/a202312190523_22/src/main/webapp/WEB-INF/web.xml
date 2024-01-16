@@ -90,3 +90,9 @@
   </resource-ref>
 
 </web-app>
+
+<!--
+ECLIPSE_FOLDER\eclipse-workspace\Servers\Tomcat v8.5 Server at localhost-config\context.xml
+    Uncomment this to disable session persistence across Tomcat restarts
+    <Manager pathname="" />
+-->
