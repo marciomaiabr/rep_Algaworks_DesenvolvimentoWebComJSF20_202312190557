@@ -83,6 +83,12 @@
 				</h:column>
 				
 				<h:column rendered="#{request.isUserInRole('cadastro')}">
+					<h:commandLink action="#{consultaLancamentoBean.downloadComprovante}" target="_blank">
+						<h:graphicImage value="/imagens/download.png"/>
+						<f:setPropertyActionListener target="#{consultaLancamentoBean.lancamentoSelecionado}" 
+							value="#{lancamento}"/>
+					</h:commandLink>
+
 					<h:link outcome="CadastroLancamento">
 						<h:graphicImage value="/imagens/editar.png"/>
 						<f:param name="codigo" value="#{lancamento.codigo}"/>
