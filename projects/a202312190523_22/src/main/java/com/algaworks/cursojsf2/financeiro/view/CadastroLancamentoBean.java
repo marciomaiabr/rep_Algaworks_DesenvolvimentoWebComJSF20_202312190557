@@ -20,7 +20,7 @@ import com.algaworks.cursojsf2.financeiro.model.Pessoa;
 import com.algaworks.cursojsf2.financeiro.model.TipoLancamento;
 import com.algaworks.cursojsf2.financeiro.repository.Pessoas;
 import com.algaworks.cursojsf2.financeiro.service.GestaoLancamentos;
-import com.algaworks.cursojsf2.financeiro.service.RegraNegocioException;
+import com.algaworks.cursojsf2.financeiro.exceptions.RegraNegocioException;
 import com.algaworks.cursojsf2.financeiro.util.FacesUtil;
 import com.algaworks.cursojsf2.financeiro.util.Repositorios;
 

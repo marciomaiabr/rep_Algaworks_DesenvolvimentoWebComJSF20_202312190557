@@ -1,5 +1,6 @@
 package com.algaworks.cursojsf2.financeiro.service;
 
+import com.algaworks.cursojsf2.financeiro.exceptions.RegraNegocioException;
 import com.algaworks.cursojsf2.financeiro.model.Lancamento;
 import com.algaworks.cursojsf2.financeiro.repository.Lancamentos;
 
