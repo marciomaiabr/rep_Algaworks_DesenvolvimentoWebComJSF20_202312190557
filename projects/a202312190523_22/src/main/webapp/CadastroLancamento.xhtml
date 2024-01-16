@@ -86,7 +86,7 @@
 				<h:outputLabel/>
 				<h:commandButton value="#{msg.save}" action="#{cadastroLancamentoBean.salvar}"
 						actionListener="#{cadastroLancamentoBean.uploadComprovante}">
-					<f:ajax execute="@form" render="@all"/>
+					<f:ajax execute="@form" render="@form"/>
 				</h:commandButton>
 			</h:panelGrid>
 			

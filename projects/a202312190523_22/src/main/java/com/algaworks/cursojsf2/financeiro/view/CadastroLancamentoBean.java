@@ -77,6 +77,9 @@ public class CadastroLancamentoBean implements Serializable {
 	public void salvar() {
 		GestaoLancamentos gestaoLancamentos = new GestaoLancamentos(this.repositorios.getLancamentos());
 		try {
+			if(lancamento.getDescricao().toUpperCase().indexOf("ERRO")>=0) {
+				throw new RuntimeException("MMRuntimeException...2...");
+			}
 			gestaoLancamentos.salvar(lancamento);
 			
 			this.lancamento = new Lancamento();
