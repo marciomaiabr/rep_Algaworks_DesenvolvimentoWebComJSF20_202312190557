@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context>
 	<Realm className="org.apache.catalina.realm.JDBCRealm"
-		driverName="com.mysql.jdbc.Driver"
+		driverName="com.mysql.cj.jdbc.Driver"
 		connectionURL="jdbc:mysql://localhost/scma202401120903"
 		connectionName="root" connectionPassword="senharoot" userTable="usuario"
 		userNameCol="nome_usuario" userCredCol="senha"
