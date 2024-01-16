@@ -2,16 +2,10 @@
 <persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
 	<persistence-unit name="myPU" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<non-jta-data-source>java:comp/env/jdbc/TestDB</non-jta-data-source>
 		<properties>
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.MySQL5Dialect" />
-			<property name="javax.persistence.jdbc.url"
-				value="jdbc:mysql://sql10.freesqldatabase.com/sql10676467" />
-			<property name="javax.persistence.jdbc.user" value="sql10676467" />
-			<property name="javax.persistence.jdbc.password"
-				value="1nujGLNeBW" />
-			<property name="javax.persistence.jdbc.driver"
-				value="com.mysql.cj.jdbc.Driver" />
 			<property name="hibernate.show_sql" value="false" />
 			<property name="hibernate.format_sql" value="false" />
 			<property name="use_sql_comments" value="false" />
@@ -20,3 +14,22 @@
 		</properties>
 	</persistence-unit>
 </persistence>
+
+<!--
+to configure data source
+ECLIPSE_FOLDER\eclipse-workspace\Servers\Tomcat v8.5 Server at localhost-config\context.xml
+
+	<Resource
+		name="jdbc/TestDB"
+		auth="Container"
+		type="javax.sql.DataSource"
+		maxTotal="100"
+		maxIdle="30"
+		maxWaitMillis="10000"
+		username="USUARIO"
+		password="SENHA"
+		driverClassName="com.mysql.cj.jdbc.Driver"
+		url="jdbc:mysql://***abase.com/sql10676467"
+	/>
+
+-->
