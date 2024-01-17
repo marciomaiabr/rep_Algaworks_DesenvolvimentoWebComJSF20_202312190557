@@ -31,36 +31,15 @@ public class CadastroLancamentoBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private Repositorios repositorios = new Repositorios();
 	private List<Pessoa> pessoas = new ArrayList<Pessoa>();
 	private Lancamento lancamento = new Lancamento();
 	private transient Part arquivoComprovante;
 
-	@ManagedProperty("#{glmb}")
-//without #{}
-/*
-jan. 17, 2024 4:54:10 AM com.sun.faces.lifecycle.ProcessValidationsPhase execute
-WARNING: Não é possível definir a propriedade gestaoLancamentosMP para o bean gerenciado cadastroLancamentoBean.
-com.sun.faces.mgbean.ManagedBeanCreationException: Não é possível definir a propriedade gestaoLancamentosMP para o bean gerenciado cadastroLancamentoBean.
-	at com.sun.faces.mgbean.ManagedBeanBuilder$BakedBeanProperty.set(ManagedBeanBuilder.java:615)
-*/
+	/*@ManagedProperty("#{gestaoLancamentosMB}")
 	private GestaoLancamentos gestaoLancamentosMP;
-
-/*
-jan. 17, 2024 4:44:06 AM com.sun.faces.mgbean.BeanManager preProcessBean
-SEVERE: O JSF estará indisponível para criar o bean gerenciado cadastroLancamentoBean quando ele for solicitado.  Os seguintes problemas foram encontrados:
-     - A propriedade gestaoLancamentosMP para o bean gerenciado cadastroLancamentoBean não existe.
-jan. 17, 2024 4:44:06 AM com.sun.faces.lifecycle.InvokeApplicationPhase execute
-WARNING: Não foi possível criar o bean gerenciado cadastroLancamentoBean.  Os seguintes problemas foram encontrados:
-     - A propriedade gestaoLancamentosMP para o bean gerenciado cadastroLancamentoBean não existe.
-com.sun.faces.mgbean.ManagedBeanCreationException: Não foi possível criar o bean gerenciado cadastroLancamentoBean.  Os seguintes problemas foram encontrados:
-     - A propriedade gestaoLancamentosMP para o bean gerenciado cadastroLancamentoBean não existe.
-	at com.sun.faces.mgbean.BeanManager.create(BeanManager.java:265)
-*/
-	//without getGestaoLancamentosMP()
 	public void setGestaoLancamentosMP(GestaoLancamentos gestaoLancamentosMP) {
 		this.gestaoLancamentosMP = gestaoLancamentosMP;
-	}
+	}*/
 
 	public String init() {
 //		if (this.lancamento.isPago()) {
@@ -70,8 +49,7 @@ com.sun.faces.mgbean.ManagedBeanCreationException: Não foi possível criar o be
 //			return "ConsultaLancamento";
 //		}
 		
-		Pessoas pessoas = this.repositorios.getPessoas();
-		this.pessoas = pessoas.todas();
+		this.pessoas = (new Repositorios()).getPessoas().todas();
 		
 		return null;
 	}
@@ -102,13 +80,11 @@ com.sun.faces.mgbean.ManagedBeanCreationException: Não foi possível criar o be
 	}
 	
 	public void salvar() {
-		gestaoLancamentosMP.teste();
-		GestaoLancamentos gestaoLancamentos = new GestaoLancamentos(this.repositorios.getLancamentos());
 		try {
 			if(lancamento.getDescricao().toUpperCase().indexOf("ERRO")>=0) {
 				throw new RuntimeException("MMRuntimeException...2...");
 			}
-			gestaoLancamentos.salvar(lancamento);
+			(new GestaoLancamentos()).salvar(lancamento);
 			
 			this.lancamento = new Lancamento();
 			

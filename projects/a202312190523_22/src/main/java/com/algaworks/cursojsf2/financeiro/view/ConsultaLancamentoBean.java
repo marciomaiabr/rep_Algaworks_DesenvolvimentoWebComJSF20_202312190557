@@ -11,6 +11,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
@@ -26,20 +27,24 @@ public class ConsultaLancamentoBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private Repositorios repositorios = new Repositorios();
 	private List<Lancamento> lancamentos = new ArrayList<Lancamento>();
 	private Lancamento lancamentoSelecionado;
 	
+	@ManagedProperty("#{gestaoLancamentosMB}")
+	private GestaoLancamentos gestaoLancamentosMP;
+	public void setGestaoLancamentosMP(GestaoLancamentos gestaoLancamentosMP) {
+		this.gestaoLancamentosMP = gestaoLancamentosMP;
+	}
+
 	@PostConstruct
 	public void inicializar() {
-		Lancamentos lancamentos = this.repositorios.getLancamentos();
+		Lancamentos lancamentos = (new Repositorios()).getLancamentos();
 		this.lancamentos = lancamentos.todos();
 	}
 
 	public void excluir() {
-		GestaoLancamentos gestaoLancamentos = new GestaoLancamentos(this.repositorios.getLancamentos());
 		try {
-			gestaoLancamentos.excluir(this.lancamentoSelecionado);
+			gestaoLancamentosMP.excluir(this.lancamentoSelecionado);
 			
 			this.inicializar();
 			

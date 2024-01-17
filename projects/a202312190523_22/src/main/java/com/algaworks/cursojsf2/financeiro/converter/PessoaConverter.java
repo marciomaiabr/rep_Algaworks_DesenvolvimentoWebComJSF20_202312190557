@@ -12,14 +12,13 @@ import com.algaworks.cursojsf2.financeiro.util.Repositorios;
 @FacesConverter(forClass=Pessoa.class)
 public class PessoaConverter implements Converter {
 
-	private Repositorios repositorios = new Repositorios();
 	
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {
 		Pessoa retorno = null;
 		
 		if (value != null) {
-			Pessoas pessoas = repositorios.getPessoas();
+			Pessoas pessoas = (new Repositorios()).getPessoas();
 			retorno = pessoas.porCodigo(new Integer(value));
 		}
 		

@@ -15,12 +15,11 @@ import com.algaworks.cursojsf2.financeiro.util.Repositorios;
 @FacesConverter(forClass=Lancamento.class)
 public class LancamentoConverter implements Converter {
 
-	private Repositorios repositoriosBean = new Repositorios();
 	
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {
 		Lancamento retorno = null;
-		Lancamentos lancamentos = this.repositoriosBean.getLancamentos();
+		Lancamentos lancamentos = (new Repositorios()).getLancamentos();
 		
 		if (value != null && !value.equals("")) {
 			retorno = lancamentos.porCodigo(new Integer(value));
