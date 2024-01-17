@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -34,6 +35,32 @@ public class CadastroLancamentoBean implements Serializable {
 	private List<Pessoa> pessoas = new ArrayList<Pessoa>();
 	private Lancamento lancamento = new Lancamento();
 	private transient Part arquivoComprovante;
+
+	@ManagedProperty("#{glmb}")
+//without #{}
+/*
+jan. 17, 2024 4:54:10 AM com.sun.faces.lifecycle.ProcessValidationsPhase execute
+WARNING: Não é possível definir a propriedade gestaoLancamentosMP para o bean gerenciado cadastroLancamentoBean.
+com.sun.faces.mgbean.ManagedBeanCreationException: Não é possível definir a propriedade gestaoLancamentosMP para o bean gerenciado cadastroLancamentoBean.
+	at com.sun.faces.mgbean.ManagedBeanBuilder$BakedBeanProperty.set(ManagedBeanBuilder.java:615)
+*/
+	private GestaoLancamentos gestaoLancamentosMP;
+
+/*
+jan. 17, 2024 4:44:06 AM com.sun.faces.mgbean.BeanManager preProcessBean
+SEVERE: O JSF estará indisponível para criar o bean gerenciado cadastroLancamentoBean quando ele for solicitado.  Os seguintes problemas foram encontrados:
+     - A propriedade gestaoLancamentosMP para o bean gerenciado cadastroLancamentoBean não existe.
+jan. 17, 2024 4:44:06 AM com.sun.faces.lifecycle.InvokeApplicationPhase execute
+WARNING: Não foi possível criar o bean gerenciado cadastroLancamentoBean.  Os seguintes problemas foram encontrados:
+     - A propriedade gestaoLancamentosMP para o bean gerenciado cadastroLancamentoBean não existe.
+com.sun.faces.mgbean.ManagedBeanCreationException: Não foi possível criar o bean gerenciado cadastroLancamentoBean.  Os seguintes problemas foram encontrados:
+     - A propriedade gestaoLancamentosMP para o bean gerenciado cadastroLancamentoBean não existe.
+	at com.sun.faces.mgbean.BeanManager.create(BeanManager.java:265)
+*/
+	//without getGestaoLancamentosMP()
+	public void setGestaoLancamentosMP(GestaoLancamentos gestaoLancamentosMP) {
+		this.gestaoLancamentosMP = gestaoLancamentosMP;
+	}
 
 	public String init() {
 //		if (this.lancamento.isPago()) {
@@ -75,6 +102,7 @@ public class CadastroLancamentoBean implements Serializable {
 	}
 	
 	public void salvar() {
+		gestaoLancamentosMP.teste();
 		GestaoLancamentos gestaoLancamentos = new GestaoLancamentos(this.repositorios.getLancamentos());
 		try {
 			if(lancamento.getDescricao().toUpperCase().indexOf("ERRO")>=0) {
