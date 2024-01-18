@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context>
-	<Realm className="org.apache.catalina.realm.JDBCRealm"
-		driverName="com.mysql.cj.jdbc.Driver"
-		connectionURL="jdbc:mysql://localhost/scma202401120903"
-		connectionName="root" connectionPassword="senharoot" userTable="usuario"
-		userNameCol="nome_usuario" userCredCol="senha"
+	<Realm className="org.apache.catalina.realm.DataSourceRealm"
+		dataSourceName="jdbc/TestDB"
+		userTable="usuario" userNameCol="nome_usuario" userCredCol="senha"
 		userRoleTable="permissao_usuario" roleNameCol="nome_permissao" >
 
 <CredentialHandler className="org.apache.catalina.realm.MessageDigestCredentialHandler"
@@ -15,3 +13,27 @@ saltlenght="0"
 
 	</Realm>
 </Context>
+
+<!--
+to use DataSourceRealm
+in
+ECLIPSE_FOLDER\eclipse-workspace\Servers\Tomcat v8.5 Server at localhost-config\server.xml
+
+in
+<GlobalNamingResources>
+
+configurar
+	<Resource
+		name="jdbc/TestDB"
+		auth="Container"
+		type="javax.sql.DataSource"
+		maxTotal="100"
+		maxIdle="30"
+		maxWaitMillis="10000"
+		username="usuario_db"
+		password="senha_usuario_db"
+		driverClassName="com.mysql.cj.jdbc.Driver"
+		url="jdbc:mysql://...zonaws.com/db20..."
+	/>
+
+-->
